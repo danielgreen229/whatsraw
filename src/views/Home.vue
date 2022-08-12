@@ -22,24 +22,43 @@
   	</div>
     <div class="home-title__container">
     	<h1 class="home-title__h1">Рассылка в <mark class="mark-whatsapp">WhatsApp</mark></br> из <mark class="mark-whatsapp">Excel</mark> таблиц</h1>
-    	<p class="home-title__p">Создавайте рассылки или чат-ботов</br>сами или по данным из таблицы</p>
+    	<p class="home-title__p">Создавайте диалоги и</br>отправляйте сообщения из таблиц</p>
     	<button class="buttons-0 home-reg__button">Зарегистрироваться!</button>
     </div>
 
 
-    <div class="home-block-0__container">
+    <div class="home-block-0__container" v-if="Wwidth > 480">
       <div class="home-block-0-info__div">
-        <h1 class="home-block-0__h1">Более 15 тыс.<br> пользователей</h1>
+        <h1 class="home-block-0__h1 home-block-0-h1__border">Более 15 тыс.<br> пользователей</h1>
       </div>
-      <div class="home-block-0-info__div">
-         <h1 class="home-block-0__h1">Доступно <br>в 180 странах</h1>
+      <div class="home-block-0-info__div ">
+         <h1 class="home-block-0__h1 home-block-0-h1__border-1">Доступно <br>в 180 странах</h1>
       </div>
       <div class="home-block-0-info__div">
          <h1 class="home-block-0__h1">Возможно <br>на 60 языках</h1>
       </div>
     </div>
 
-
+    <div class="home-block-0-sol__div">
+      <h1 class="home-block-0-sol__h1">Уникальное предложение</h1>
+      <div class="home-block-0-sol-div__container">
+        <div class="home-block-0-sol-h1__content content-padding">
+          <div class="home-block-0-sol__img home-block-0-sol__img-0"></div>
+          <h1 class="home-block-0-sol__h1">Простая интеграция</h1>
+          <p class="home-block-0-sol__p">Вход в Whatsapp используя QR-code</p>
+        </div>
+        <div class="home-block-0-sol-h1__content content-padding">
+          <div class="home-block-0-sol__img home-block-0-sol__img-1"></div>
+          <h1 class="home-block-0-sol__h1">Быстрое подключение</h1>
+          <p class="home-block-0-sol__p">Не ждите модерации аккаунта.</br>Начните сейчас!</p>
+        </div>
+        <div class="home-block-0-sol-h1__content">
+          <div class="home-block-0-sol__img home-block-0-sol__img-2"></div>
+          <h1 class="home-block-0-sol__h1">Отправка сообщений</h1>
+          <p class="home-block-0-sol__p">Отправка сообщений из Excel файла на платформе Whatsapp</p>
+        </div>
+      </div>
+    </div>
 
 
   </div>
@@ -53,11 +72,89 @@ export default {
   name: 'Home',
   components: {
   	KinesisContainer, KinesisElement
+  },
+  data() {
+    return {
+      Wwidth: window.innerWidth
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize);
+    })
+  },
+
+  beforeDestroy() { 
+    window.removeEventListener('resize', this.onResize); 
+  },
+
+  methods: {  
+    onResize() {
+      this.Wwidth = window.innerHeight
+    }
   }
 }
 </script>
 
 <style scoped>
+.home-block-0-sol__img-0 {
+  background: url("https://img.icons8.com/ios-filled/50/000000/recurring-appointment.png");
+}
+.home-block-0-sol__img-1 {
+  background: url("https://img.icons8.com/ios-filled/50/000000/recurring-appointment.png");
+}
+.home-block-0-sol__img-2 {
+  background: url("https://img.icons8.com/ios-filled/50/000000/recurring-appointment.png");
+}
+.home-block-0-sol__img {
+    width: 8vw;
+    height: 8vw;
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-bottom: 2vw;
+}
+.content-padding {
+  padding-right: 2vw;
+}
+.home-block-0-sol__p {
+  text-align: center;
+}
+.home-block-0-sol-h1__content {
+  width: 33.333%;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.home-block-0-sol-div__container {
+  margin-top: 5vw;
+  display: flex;
+    flex-direction: row;
+}
+.home-block-0-sol__div {
+  margin-top: 10vw;
+}
+.home-block-0-sol__h1 {
+  font-size: 2vw;
+  text-align: center;
+}
+.home {
+  padding-bottom: 20vw;
+}
+.home-block-0-h1__border-1:before {
+   width: 15.5vw;
+    content: "";
+    border-right: 0.1vw solid #ddd;
+    height: 5vw;
+    position: absolute;
+}
+.home-block-0-h1__border:before {
+     width: 17.9vw;
+    content: "";
+    border-right: 0.1vw solid #ddd;
+    height: 5vw;
+    position: absolute;
+}
 .home-block-0__h1 {
   font-size: 2vw;
 }
@@ -170,7 +267,7 @@ export default {
     max-height: 25vw;
 }
 .home {	
-	    height: 100vh;
+	  
     width: 100%;
 }
 .home-title__h1 {

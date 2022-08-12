@@ -20,7 +20,7 @@ p {
       line-height: 1.625em;
 }
 html {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 body {
     color: #777777;
@@ -30,7 +30,7 @@ body {
     
     position: relative;
     margin: 0;
-        overflow-x: hidden;
+       /* overflow-x: hidden;*/
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: "Poppins", sans-serif;
