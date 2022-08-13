@@ -135,24 +135,39 @@
     </div>
 
 
-    <div class="home-block-0-sol__div">
+    <div class="home-block-1-sol__div">
       <h1 class="home-block-0-sol-main__h1">Способы использования</h1>
       <p style="text-align: center;">Проще чем вы думаете</p>
       <div class="home-block-0-sol-div__container">
         <div class="home-block-0-sol-h1__content content-padding">
-          <div class="home-block-0-sol__img home-block-0-sol__img-0"></div>
-          <h1 class="home-block-0-sol__h1">Простая интеграция</h1>
-          <p class="home-block-0-sol__p">Вход в Whatsapp используя QR-code</p>
+          <div class="home-block-0-sol__img home-block-1-sol__img-0"></div>
+          <h1 class="home-block-0-sol__h1">Чатинг</h1>
+          <p class="home-block-0-sol__p">Отправка сообщений </br>для автоматизации бизнеса.</p>
         </div>
         <div class="home-block-0-sol-h1__content content-padding">
-          <div class="home-block-0-sol__img home-block-0-sol__img-1"></div>
-          <h1 class="home-block-0-sol__h1">Быстрое подключение</h1>
-          <p class="home-block-0-sol__p">Не ждите модерации аккаунта.</br>Начните сейчас!</p>
+          <div class="home-block-0-sol__img home-block-1-sol__img-1"></div>
+          <h1 class="home-block-0-sol__h1">Сервис</h1>
+          <p class="home-block-0-sol__p">Общайтесь со своими клиентами и оказывайте поддержку.</p>
         </div>
         <div class="home-block-0-sol-h1__content">
-          <div class="home-block-0-sol__img home-block-0-sol__img-2"></div>
-          <h1 class="home-block-0-sol__h1">Отправка сообщений</h1>
-          <p class="home-block-0-sol__p">Отправка сообщений используя Excel файл</p>
+          <div class="home-block-0-sol__img home-block-1-sol__img-2"></div>
+          <h1 class="home-block-0-sol__h1">Аутентификация</h1>
+          <p class="home-block-0-sol__p">Нет необходимости запоминать пароли для приложения.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="home-block-footer__container">
+      <div class="home-block-footer__text">
+        <p>Whats Raw никоим образом не связан, не авторизован, не поддерживается, не спонсируется и не поддерживается WhatsApp или любым из его филиалов или дочерних компаний. Это независимое и неофициальное программное обеспечение. Не используйте этот сервис для рассылки спама или массовых сообщений. Используйте на свой риск.</p>
+      </div>
+      <div class="home-block-footer__roting">
+        <h1 class="home-block-footer__h1">Быстрые ссылки</h1>
+        <div class="home-block-footer__nav">
+          <p @click="goTo(0)" class="home-block-footer__p">Регистрация</p>
+          <p @click="goTo(1)" class="home-block-footer__p">Личный кабинет</p>
+          <p @click="goTo(2)" class="home-block-footer__p">О нас</p>
         </div>
       </div>
     </div>
@@ -178,13 +193,11 @@ export default {
   },
   watch: {
     Wwidth() {
-    
     },
     scrollY() {
       if(this.scrollY + window.innerHeight < document.getElementById("iphone-1").offsetTop + 500) {
         this.CountMessageShow = -1
       }
-     
       else if(this.scrollY + window.innerHeight > document.getElementById("iphone-2").offsetTop + 700) {
         this.CountMessageShow = 6
       }
@@ -207,12 +220,6 @@ export default {
       else if(this.scrollY + window.innerHeight > document.getElementById("iphone-1").offsetTop + 500) {
         this.CountMessageShow = 0
       }
-      
-      
-     
-      
-    
-      
     }
   },
   mounted() {
@@ -237,13 +244,62 @@ export default {
     },
     onResize() {
       this.Wwidth = window.innerWidth
+    },
+    goTo(ind) {
+      if(ind == 0) { this.$router.push('/signup') }
+      else if(ind == 1) { this.$router.push('/profile') }
+      else if(ind == 2) { this.$router.push('/about') }
     }
   }
 }
 </script>
 
 <style scoped>
+.home-block-footer__h1 {
+  color: white; 
+  font-size: 3vw;  
+}
 
+.home-block-footer__nav {
+  display: flex;
+    flex-direction: row;
+}
+.home-block-footer__p {
+  padding-right: 1vw;
+  cursor: pointer;
+}
+.home-block-footer__p:hover {
+  opacity: 0.85;
+}
+.home-block-footer__container {
+   background-color: #222222;
+    width: calc(100% + 36vw);
+    margin-left: -18vw;
+    height: 24vw;
+    margin-top: 15vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
+}
+.home-block-footer__text {
+  width: 50%;
+  padding: 3vw;
+      box-sizing: border-box;
+}
+.home-block-footer__roting {
+  width: 50%;
+   padding: 3vw;
+       box-sizing: border-box;
+}
+
+
+
+
+.home-block-1-sol__div {
+  margin-top: -3vw;
+}
 .home-block-1-info-0__p {
   white-space: nowrap;  
 }
@@ -355,20 +411,32 @@ export default {
     height: 64vw;
 }
 .home-block-1-top__div {
-  margin-top: 0;
+  margin-top: -15vw;
 }
 
 
 
 .home-block-0-sol__img-0 {
-  background: url("https://img.icons8.com/ios-filled/50/000000/recurring-appointment.png");
+  background: url('../assets/home/load.svg');
 }
 .home-block-0-sol__img-1 {
-  background: url("https://img.icons8.com/ios-glyphs/60/000000/personal-hotspot.png");
+  background: url('../assets/home/share.svg');
 }
 .home-block-0-sol__img-2 {
-  background: url("https://img.icons8.com/ios-filled/50/000000/recurring-appointment.png");
+   background: url('../assets/home/message.svg');
 }
+.home-block-1-sol__img-0 {
+  background: url('../assets/home/message.svg');
+}
+.home-block-1-sol__img-1 {
+  background: url('../assets/home/users.svg');
+      background-size: 90% !important;
+}
+.home-block-1-sol__img-2 {
+   background: url('../assets/home/lock.svg');
+}
+
+
 .home-block-0-sol__img {
     width: 8vw;
     height: 8vw;
@@ -408,7 +476,7 @@ export default {
   text-align: center;
 }
 .home {
-  padding-bottom: 20vw;
+ 
 }
 .home-block-0-h1__border-1:before {
    width: 15.5vw;
@@ -454,6 +522,11 @@ export default {
   z-index: 3;
 	margin-top: 4vw;
 	margin-bottom: 5vw;
+  transition: 1s;
+}
+.home-reg__button:hover {
+  opacity: 0.85;
+
 }
 .home-title__container {
 	    display: flex;

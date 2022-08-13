@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 #app {
       margin-left: 18vw;
     margin-right: 18vw;
-      
+
 }
 
 
@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
 .logo {
       background-color: black;
     margin-top: 2vw;
-    position: fixed;
+    position: absolute;
     font-weight: 100;
     font-variant: petite-caps;
     z-index: 5;
