@@ -73,6 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 #app {
       margin-left: 18vw;
     margin-right: 18vw;
+      
 }
 
 
