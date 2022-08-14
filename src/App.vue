@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/"><h1 class="logo">Whats Raw</h1></router-link>
-      <div class="navigation">
+      <router-link to="/"><h1 class="logo" :class="{'logo-nav-profile': pather}">Whats Raw</h1></router-link>
+      <div class="navigation" v-if="!pather">
         <router-link to="/about">О нас</router-link> 
         <router-link to="/profile">Вход</router-link>
       </div>
@@ -11,7 +11,42 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'apper',
+  data() {
+    return {
+      pather: false
+    }
+  },
+  watch: {
+    '$route' (to, from){
+        console.log(to, "asdzx")
+        if(to.path != '/') {
+          this.pather = true
+        }
+        else {
+          this.pather = false
+        }
+    }
+  },
+  mounted() {
+   
+    if(this.$route.path != '/') {
+      this.pather = true
+    }
+    else {
+      this.pather = false
+    }
+  }
+}
+</script>
+
 <style>
+.logo-nav-profile {
+  margin-left: -16vw;
+    margin-top: 4vw;
+}
 p {
   color: #777777;
   font-size: 1.5vw;
@@ -92,6 +127,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2vw;
     padding: 0.5vw 1vw 0.5vw 1vw;
     border-radius: 3vw;
+    transition: 1s;
 }
 
 

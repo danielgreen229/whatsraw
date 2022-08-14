@@ -1,5 +1,19 @@
 <template>
-  <div class="about">
-    <h1>about</h1>
+  <div class="prifile">
+   	
+   	<linkC/>
   </div>
 </template>
+
+
+<script>
+import linkC from '../components/linkCreation'
+
+export default {
+  name: 'prifile',
+  components: {
+  	linkC
+  },
+}
+
+</script>

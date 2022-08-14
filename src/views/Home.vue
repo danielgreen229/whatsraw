@@ -5,28 +5,22 @@
   		   	  <kinesis-element :strength="10">
                 <div class="home-circle__div circle-1"></div>
               </kinesis-element>
-
               <kinesis-element :strength="30">
                 <div class="home-circle__div circle-0"></div>
               </kinesis-element>
-
                <kinesis-element :strength="50">
                 <div class="home-circle__div circle-2"></div>
               </kinesis-element>
-
                <kinesis-element :strength="40">
                 <div class="home-circle__div circle-3"></div>
               </kinesis-element>
-            
           </kinesis-container>
   	</div>
     <div class="home-title__container">
     	<h1 class="home-title__h1">Рассылка в <mark class="mark-whatsapp">WhatsApp</mark></br> из <mark class="mark-whatsapp">Excel</mark> таблиц</h1>
     	<p class="home-title__p">Создавайте диалоги и</br>отправляйте сообщения из таблиц</p>
-    	<button class="buttons-0 home-reg__button">Зарегистрироваться!</button>
+    	<button @click="goTo(0)" class="buttons-0 home-reg__button">Зарегистрироваться!</button>
     </div>
-
-
     <div class="home-block-0__container" v-if="Wwidth > 480">
       <div class="home-block-0-info__div">
         <h1 class="home-block-0__h1 home-block-0-h1__border">Более 15 тыс.<br> пользователей</h1>
@@ -38,7 +32,6 @@
          <h1 class="home-block-0__h1">Возможно <br>на 60 языках</h1>
       </div>
     </div>
-
     <div class="home-block-0-sol__div">
       <h1 class="home-block-0-sol-main__h1">Уникальное предложение</h1>
       <div class="home-block-0-sol-div__container">
@@ -59,8 +52,6 @@
         </div>
       </div>
     </div>
-
-
     <div class="home-block-1-ex__div">
       <div class="home-block-1-iphone__div" id="iphone-1">
         <kinesis-container class="home-block-1-iphone__gif">
@@ -99,9 +90,6 @@
         <p class="home-block-1-info-0__p">Создавая рассылки в WhatsApp,</br>вы улучшаете отношения со</br> своими клиентами.</p>
       </div>
     </div>
-
-
-
     <div class="home-block-1-ex__div home-block-1-top__div">
        <div class="home-block-1-info-0__div">
         <h1 class="home-block-1-info-0__h1">Повысить лояльность</h1>
@@ -133,8 +121,6 @@
         </kinesis-container>
       </div>
     </div>
-
-
     <div class="home-block-1-sol__div">
       <h1 class="home-block-0-sol-main__h1">Способы использования</h1>
       <p style="text-align: center;">Проще чем вы думаете</p>
@@ -156,8 +142,6 @@
         </div>
       </div>
     </div>
-
-
     <div class="home-block-footer__container">
       <div class="home-block-footer__text">
         <p>Whats Raw никоим образом не связан, не авторизован, не поддерживается, не спонсируется и не поддерживается WhatsApp или любым из его филиалов или дочерних компаний. Это независимое и неофициальное программное обеспечение. Не используйте этот сервис для рассылки спама или массовых сообщений. Используйте на свой риск.</p>
@@ -171,7 +155,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -254,7 +237,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .home-block-footer__h1 {
   color: white; 
   font-size: 3vw;  
