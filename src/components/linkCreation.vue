@@ -404,7 +404,10 @@ export default {
       for(let key in this.SortedTable) {
         await fetch('https://whatssendlerserver.herokuapp.com/send-message', {
           method: 'POST',
-         
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
           body: JSON.stringify({
               number: this.SortedTable[key].phone.toString().replace('8','7'),
               message: this.SortedTable[key].message
