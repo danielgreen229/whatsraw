@@ -43,6 +43,20 @@ export default {
 </script>
 
 <style>
+.error-info__promt {
+      background-color: black;
+    margin-top: 2vw;
+    position: absolute;
+    font-weight: bold;
+    z-index: 5;
+    color: white;
+    font-size: 1.6vw;
+    padding: 0.5vw 1vw 0.5vw 1vw;
+    border-radius: 3vw;
+    transition: 1s;
+    position: fixed;
+    top: 0;
+}
 .logo-nav-profile {
   margin-left: -16vw;
     margin-top: 4vw;
@@ -87,6 +101,19 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1vw;
   cursor: pointer;
 }
+.buttons-0:hover, .buttons-1:hover {
+  opacity: 0.85;
+}
+.buttons-1 {
+  background-color: #477bf8;
+  color: white;
+  border-radius: 0;
+  border: none;
+  font-size: 1.5vw;
+  font-weight: bold;
+  padding: 1vw;
+  cursor: pointer;
+}
 .navigation {
   position: absolute;
   top: 0;
@@ -118,7 +145,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .logo {
       background-color: black;
-    margin-top: 2vw;
+    margin-top: 1.7vw;
     position: absolute;
     font-weight: 100;
     font-variant: petite-caps;
