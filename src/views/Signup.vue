@@ -1,24 +1,25 @@
 <template>
   <div class="signup">
+    <transition name="slide-fade-rev" ><h1 v-if="error != ''" class="error-info__promt">{{error}}</h1></transition>
     <div class="signup-register-card__div">
       <div class="signup-register-card__container">
         <h1 class="signup-register-txt__h">Регистрация</h1>
         <div class="signup-email__container">
           <p class="signup-email-txt__p">Email:</p>
-          <input class="signup__input" type="text" placeholder="Email">
+          <input v-model="email" class="signup__input" type="text" placeholder="Email">
         </div>
         <div class="signup-password__container">
           <p class="signup-password-txt__p">Пароль:</p> 
-          <input class="signup__input" type="text" placeholder="Пароль">
+          <input v-model="password" class="signup__input" type="text" placeholder="Пароль">
         </div>
         <div class="signup-conf-password__container">
           <p class="signup-conf-password-txt__p">Подтвердите пароль:</p> 
-          <input class="signup__input" type="text" placeholder="Подтвердите пароль">
+          <input v-model="confPassword" class="signup__input" type="text" placeholder="Подтвердите пароль">
         </div>
         <div class="signup__line"></div>
-        <button class="signup-create-acc__btn">Зарегистрироваться</button>
+        <button @click="checkInput()" class="signup-create-acc__btn">Зарегистрироваться</button>
          <div class="signup-enter-acc__div">
-          <a class="signup-enter-acc__p">Уже есть аккаунт?</a><br><a href="">Войти!</a>
+          <a class="signup-enter-acc__p">Уже есть аккаунт?</a><br><a href="http://localhost:8080/#/signin">Войти!</a>
         </div>
       </div>
     </div>
@@ -27,7 +28,32 @@
 
 <script>
 export default {
-
+data(){
+  return {
+    error: '',
+    email: '',
+    password: '',
+    confPassword: '',
+  }
+},
+methods: {
+  setError (ind) {
+      if(ind == 0)
+        this.error = 'Заполните все поля!'
+      setTimeout(()=>{this.error = ''}, 1500)
+    },
+  checkInput() {
+    if (this.email == '') {
+      this.setError(0)
+    } 
+    else if (this.password == '') {
+      this.setError(0)
+    } 
+    else if (this.confPassword == '') {
+      this.setError(0)
+    } 
+  }  
+}
 }
 </script>
 
@@ -40,8 +66,8 @@ export default {
   box-sizing: border-box;
     padding-right: 2vw;
     padding-left: 2vw;
-  height: 45.4vw;
-    width: 55.3vw;
+  height: 30.8vw;
+    width: 41.3vw;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -63,20 +89,21 @@ export default {
     margin-bottom: 2vw;
 }
 .signup-register-txt__h {
-  font-size: 2vw;
-  position: relative;
-    left: 45%;
+  font-size: 1.8vw;
+    position: relative;
+    left: 35%;
 }
 .signup-email-txt__p {
   margin-top: 0;
   margin-bottom: 0.5vw;
-  font-size: 1.8vw;
+  font-size: 1.5vw;
 }
 .signup-password-quastion-txt__p {
   margin: 0;
     position: absolute;
-    left: 41vw;
-    top: 13.2vw;
+    left: 31.5vw;
+    top: 10.9vw;
+    font-size: 1vw;
 }
 .signup-password__container {
   margin-top: 1vw;
@@ -84,13 +111,21 @@ export default {
 }
 .signup-password-txt__p {
   margin: 0;
-  font-size: 1.8vw;
+  font-size: 1.5vw;
+  margin-bottom: 0.5vw;
+}
+.signup-conf-password__container {
+  margin-top: 1vw;
+}
+.signup-conf-password-txt__p {
+   margin:0;
+   margin-bottom: 0.5vw;
 }
 .signup__input{
   width: 100%;
-    height: 4vw;
+    height: 2.5vw;
     color: #6e707e;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     box-sizing: border-box;
     padding: 0.35vw 0.75vw;
     border-radius: 0.3vw;
@@ -102,28 +137,29 @@ export default {
   box-shadow: 0px 0px 5px 0px  rgba(81, 203, 238, 1);
 } 
 .signup__line {
-  margin-top: 1.5vw;
-    margin-bottom: 1.5vw;
+  margin-top: 1vw;
+    margin-bottom: 1vw;
     border: 0;
     border-top: 1px solid rgba(0,0,0,.1);
 }
-.signup-login__btn {
+.signup-create-acc__btn {
   width: 100%;
-    height: 15%;
+    height:3vw;
     /* background-color: dodgerblue; */
     color: #fff;
     background: #1572E8 !important;
     /* border-color: #1572E8 !important; */
     border: none;
     border-radius: 0.5vw;
+    font-size: 1vw;
 }
-.signup-create-acc__div {
+.signup-enter-acc__div {
  display: flex;
     justify-content: center;
-    margin-top: 2vw;
-    font-size: 1.5vw;
+    margin-top: 1vw;
+    font-size: 1vw;
 }
-.signup-crte-acc__p {
+.signup-enter-acc__p {
   margin-right: 1.5vw;
 }
 
