@@ -1,24 +1,21 @@
 <template>
-  <div class="signup">
-    <div class="signup-register-card__div">
-      <div class="signup-register-card__container">
-        <h1 class="signup-register-txt__h">Регистрация</h1>
-        <div class="signup-email__container">
-          <p class="signup-email-txt__p">Email:</p>
-          <input class="signup__input" type="text" placeholder="Email">
+  <div class="signin">
+    <div class="signin-login-card__div">
+      <div class="signin-login-card-container">
+        <h1 class="signin-login-txt__h">Вход</h1>
+        <div class="signin-email__container">
+          <p class="signin-email-txt__p">Email:</p>
+          <input class="signin__input" type="text" placeholder="Email">
         </div>
-        <div class="signup-password__container">
-          <p class="signup-password-txt__p">Пароль:</p> 
-          <input class="signup__input" type="text" placeholder="Пароль">
+        <div class="signin-password__container">
+          <p class="signin-password-txt__p">Пароль:</p> 
+          <p class="signin-password-quastion-txt__p">Забыли пароль?</p>
+          <input class="signin__input" type="text" placeholder="Пароль">
         </div>
-        <div class="signup-conf-password__container">
-          <p class="signup-conf-password-txt__p">Подтвердите пароль:</p> 
-          <input class="signup__input" type="text" placeholder="Подтвердите пароль">
-        </div>
-        <div class="signup__line"></div>
-        <button class="signup-create-acc__btn">Зарегистрироваться</button>
-         <div class="signup-enter-acc__div">
-          <a class="signup-enter-acc__p">Уже есть аккаунт?</a><br><a href="">Войти!</a>
+        <div class="signin__line"></div>
+        <button class="signin-login__btn">Войти</button>
+        <div class="signin-create-acc__div">
+          <a class="signin-crte-acc__p">Еще не успели создать аккаунт?</a><br><a href="">Создать аккаунт!</a>
         </div>
       </div>
     </div>
@@ -32,16 +29,16 @@ export default {
 </script>
 
 <style>
-.signup {
+.signin {
   height: 100vh;
   width: 100%;
 }
-.signup-register-card__div {
+.signin-login-card__div {
   box-sizing: border-box;
     padding-right: 2vw;
     padding-left: 2vw;
-  height: 45.4vw;
-    width: 55.3vw;
+  height: 36.4vw;
+    width: 55vw;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -56,37 +53,37 @@ export default {
     /* border-radius: 0.35rem; */
     align-items: center;
 }
-.signup-register-card__container {
+.signin-login-card-container {
   width: 100%;
   height: 100%;
   margin-top: 2vw;
     margin-bottom: 2vw;
 }
-.signup-register-txt__h {
+.signin-login-txt__h {
   font-size: 2vw;
   position: relative;
     left: 45%;
 }
-.signup-email-txt__p {
+.signin-email-txt__p {
   margin-top: 0;
   margin-bottom: 0.5vw;
   font-size: 1.8vw;
 }
-.signup-password-quastion-txt__p {
+.signin-password-quastion-txt__p {
   margin: 0;
     position: absolute;
     left: 41vw;
     top: 13.2vw;
 }
-.signup-password__container {
+.signin-password__container {
   margin-top: 1vw;
     margin-bottom: 0;
 }
-.signup-password-txt__p {
+.signin-password-txt__p {
   margin: 0;
   font-size: 1.8vw;
 }
-.signup__input{
+.signin__input{
   width: 100%;
     height: 4vw;
     color: #6e707e;
@@ -96,18 +93,18 @@ export default {
     border-radius: 0.3vw;
     border: 0.12vw solid #d1d3e2;
 }
-.signup__input:focus {
+.signin__input:focus {
   outline:none;
   transition: ease-in-out.15s ease-in-out;
   box-shadow: 0px 0px 5px 0px  rgba(81, 203, 238, 1);
 } 
-.signup__line {
+.signin__line {
   margin-top: 1.5vw;
     margin-bottom: 1.5vw;
     border: 0;
     border-top: 1px solid rgba(0,0,0,.1);
 }
-.signup-login__btn {
+.signin-login__btn {
   width: 100%;
     height: 15%;
     /* background-color: dodgerblue; */
@@ -117,14 +114,13 @@ export default {
     border: none;
     border-radius: 0.5vw;
 }
-.signup-create-acc__div {
+.signin-create-acc__div {
  display: flex;
     justify-content: center;
     margin-top: 2vw;
     font-size: 1.5vw;
 }
-.signup-crte-acc__p {
+.signin-crte-acc__p {
   margin-right: 1.5vw;
 }
-
 </style>
