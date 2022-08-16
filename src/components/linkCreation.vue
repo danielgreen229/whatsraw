@@ -170,7 +170,7 @@ let xlsx = require("json-as-xlsx")
 
 import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
-
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
   name: 'Home',
@@ -212,6 +212,8 @@ export default {
         high: '499'
       },
       paymentSelected: 0,
+      sessionId: uuidv4(),
+
     }
   },
   components: {
@@ -290,12 +292,49 @@ export default {
     this.$refs.myVueDropzone.dropzone.on('maxfilesexceeded', function (file) {
       this.removeFile(file)
     })
+
+
+
+
+
+
+      this.$socket.emit('create-session', {
+        id: that.sessionId,
+        description: that.sessionId
+      });
+      
+
+      this.sockets.subscribe('init', (data) => {
+    
+        for (var i = 0; i < data.length; i++) {
+          var session = data[i];
+
+          var clientId = session.id;
+          var clientDescription = session.description;
+
+          if (session.ready) {
+           console.log("Whatsapp ready")
+          } else {
+            console.log("Whatsapp connectring")
+          }
+        }
+      });
+
+      this.sockets.subscribe('remove-session', function(id) {
+        console.log("Сессия закончена")
+      });
+
+  
+
+
+
+
+
     this.sockets.subscribe('message', (data) => {
-       
        this.logs = data
     }) 
      this.sockets.subscribe('qr', (data) => {
-       this.qrSrc = data
+       this.qrSrc = data.src
     })
     this.sockets.subscribe('ready', async (data) => {
       this.showQr = false
@@ -303,6 +342,8 @@ export default {
     this.sockets.subscribe('authenticated', async (data) => {
        this.showQr = false
     });
+
+
   },
   methods: {
     BottomButtonStep (btnInd) {
@@ -363,10 +404,7 @@ export default {
       for(let key in this.SortedTable) {
         await fetch('https://whatssendlerserver.herokuapp.com/send-message', {
           method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
+         
           body: JSON.stringify({
               number: this.SortedTable[key].phone.toString().replace('8','7'),
               message: this.SortedTable[key].message
@@ -449,7 +487,7 @@ export default {
 
 
          for(let j = 0; j < this.findingVariables.length; j++) {
-            console.log(this.findingVariables[j].Raw)
+           // console.log(this.findingVariables[j].Raw)
 
             formMessage = formMessage.replaceAll(this.findingVariables[j].Name, this.SortedTable[i].info[j])
           }
