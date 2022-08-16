@@ -410,7 +410,8 @@ export default {
           },
           body: JSON.stringify({
               number: this.SortedTable[key].phone.toString().replace('8','7'),
-              message: this.SortedTable[key].message
+              message: this.SortedTable[key].message,
+              sender: this.sessionId
           })
         }).then((res)=>{console.log(res)});
       }
