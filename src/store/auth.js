@@ -22,27 +22,28 @@ export default {
           console.log (user)
           dispatch('GET_USER', user.uid)
         } else {
-          alert('Повторите вход!')
+         // alert('Повторите вход!')
         }
       });
     },
-    async FORGOTPASS({dispatch, commit}, data) {
-      firebase.auth().sendPasswordResetEmail(this.user.email)
+    async FORGOTPASS({dispatch, commit}, email) {
+      firebase.auth().sendPasswordResetEmail(email)
         .then(() => {
-            alert('Check your registered email to reset the password!')
-            this.user = {   
-              email: ''
-            }
+          alert('Check your registered email to reset the password!')
+          commit('UPDATE_USER', {})
+          router.push('/signin')
         }).catch((error) => {
           alert(error)
         })
     },
     async LOGOUT({dispatch, commit}) {
+      commit('UPDATE_USER', {})
       firebase.auth().signOut().then(() => {
         firebase.auth().onAuthStateChanged(() => {
-          this.$router.push('/login')
+          router.push('/signin')
         })
       })
+
     },
     async SIGNUP({dispatch, commit}, data) {
       firebase.auth().createUserWithEmailAndPassword(data.email, data.password)

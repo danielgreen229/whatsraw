@@ -2,13 +2,18 @@
   <div class="prifile">
    	<div class="profile-header__container">
 
-      <div class="profile-header__div">
+      <div class="profile-header__div" @click="goTo(0), startExcel = false">
         <h1 class="profile-header__h1">{{user.email}}</h1>
       </div>
     </div>
 
-    <div v-if="!startExcel">
+    <button v-if="showSettings" @click="startExcel = false, showSettings = false"  class="buttons-0 profile-back-profile__button">← Начальная страница</button>
+    <settings v-if="showSettings"></settings>
 
+    <div v-if="!startExcel && !showSettings" class="profile-home__block">
+      
+        <button class="buttons-0" @click="startExcel = true, showSettings = false">Начать рассылку</button>
+    
     </div>
    	
    	<linkC v-if="startExcel"/>
@@ -18,17 +23,25 @@
 
 <script>
 import linkC from '../components/linkCreation'
+import settings from '../components/settings'
 
 export default {
   name: 'prifile',
   components: {
-  	linkC
+  	linkC, settings
   },
   data(){
     return {
 
-      startExcel: false
-
+      startExcel: false,
+      showSettings: false
+    }
+  },
+  methods: {
+     goTo(ind) {
+      if(ind == 0) { this.showSettings = true }
+      else if(ind == 1) { this.$router.push('/profile') }
+      else if(ind == 2) { this.$router.push('/about') }
     }
   },
   computed: {
@@ -46,6 +59,17 @@ export default {
 
 
 <style>
+.profile-back-profile__button {
+      position: absolute;
+    margin-top: 10vw;
+        z-index: 3;
+}
+.profile-home__block {
+      height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .profile-header__div {
   position: absolute;
   right: 2vw;

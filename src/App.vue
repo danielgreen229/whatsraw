@@ -40,7 +40,7 @@ export default {
           this.pather = false
         }
 
-        if(to.path == '/signin') !!this.user.email? this.$router.push('/profile') : this.$router.push('/signup')
+        if(to.path == '/signin') !!this.user.email? this.$router.push('/profile') : {}
     }
   },
   created() {
