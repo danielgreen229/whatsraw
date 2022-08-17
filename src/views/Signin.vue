@@ -1,5 +1,6 @@
 <template>
   <div class="signin">
+    {{user}}
     <transition name="slide-fade-rev" ><h1 v-if="error != ''" class="error-info__promt">{{error}}</h1></transition>
     <div class="signin-login-card__div">
       <div class="signin-login-card-container">
@@ -10,7 +11,7 @@
         </div>
         <div class="signin-password__container">
           <p class="signin-password-txt__p">Пароль:</p> 
-          <p class="signin-password-quastion-txt__p">Забыли пароль?</p>
+          <p @click="goToForgotPass()" class="signin-password-quastion-txt__p">Забыли пароль?</p>
           <input v-model="password" class="signin__input" type="text" placeholder="Пароль">
         </div>
         <div class="signin__line"></div>
@@ -27,47 +28,53 @@
 import firebase from "firebase";
 
 export default {
-data(){
-  return {
-    error: '',
-    email: '',
-    password: '',
-  }
-},
-methods: {
-    userLogin() {
-        const data = {
-            email:this.email,
-            password:this.password
-        }
-        firebase
-        .auth()
-        .signInWithEmailAndPassword(data.email, data.password)
-        .then((res) => {
-            console.log(res)
-        })
-        .catch((error) => {
-          alert(error.message);
-        });
-    },
-    
-  setError (ind) {
-      if(ind == 0)
-        this.error = 'Заполните все поля!'
-      setTimeout(()=>{this.error = ''}, 1500)
-    },
-  checkInput() {
-    if (this.email == '') {
-      this.setError(0)
-    } 
-    else if (this.password == '') {
-      this.setError(0)
-    } 
-    else if (this.email != '' && this.password != '') {
-        this.userLogin()
+  data(){
+    return {
+      error: '',
+      email: '',
+      password: '',
     }
-  }  
-}
+  },
+  watch: {
+   
+  },
+  computed: {
+    user () {
+      try {
+        const data = Object.assign({}, this.$store.getters.user);
+        return  data        
+      }
+      catch (e){ console.log(e)}
+    },
+  },
+  methods: {
+    userLogin() {
+      const data = {
+            email: this.email,
+            password: this.password
+        }
+      this.$store.dispatch('LOGIN', data)
+    },
+    setError (ind) {
+        if(ind == 0)
+          this.error = 'Заполните все поля!'
+        setTimeout(()=>{this.error = ''}, 1500)
+      },
+    checkInput() {
+      if (this.email == '') {
+        this.setError(0)
+      } 
+      else if (this.password == '') {
+        this.setError(0)
+      } 
+      else if (this.email != '' && this.password != '') {
+          this.userLogin()
+      }
+    },
+    goToForgotPass() {
+      this.$router.push('/forgotpass')
+    }  
+  }
 }
 </script>
 
@@ -118,6 +125,7 @@ methods: {
     left: 31.5vw;
     top: 10.9vw;
     font-size: 1vw;
+  cursor: pointer;
 }
 .signin-password__container {
   margin-top: 1vw;

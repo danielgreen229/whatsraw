@@ -298,31 +298,31 @@ export default {
 
 
 
-      this.$socket.emit('create-session', {
-        id: that.sessionId,
-        description: that.sessionId
-      });
+    this.$socket.emit('create-session', {
+      id: that.sessionId,
+      description: that.sessionId
+    });
       
 
-      this.sockets.subscribe('init', (data) => {
+    this.sockets.subscribe('init', (data) => {
     
-        for (var i = 0; i < data.length; i++) {
-          var session = data[i];
+      for (var i = 0; i < data.length; i++) {
+        var session = data[i];
 
-          var clientId = session.id;
-          var clientDescription = session.description;
+        var clientId = session.id;
+        var clientDescription = session.description;
 
-          if (session.ready) {
-           console.log("Whatsapp ready")
-          } else {
-            console.log("Whatsapp connectring")
-          }
+        if (session.ready) {
+         console.log("Whatsapp ready")
+        } else {
+          console.log("Whatsapp connectring")
         }
-      });
+      }
+    });
 
-      this.sockets.subscribe('remove-session', function(id) {
-        console.log("Сессия закончена")
-      });
+    this.sockets.subscribe('remove-session', function(id) {
+      console.log("Сессия закончена")
+    });
 
   
 
@@ -406,6 +406,7 @@ export default {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
+            'Access-Control-Allow-Origin':'*',
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
@@ -844,6 +845,10 @@ export default {
   }
   span {
     padding: 0 !important;
+  }
+  .dz-success-mark {
+    top: 23% !important;
+   
   }
 .dz-details, .dz-preview, .dz-image {
     height: 8vw !important;

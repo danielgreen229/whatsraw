@@ -4,7 +4,7 @@
       <router-link to="/"><h1 class="logo" :class="{'logo-nav-profile': pather}">Whats Raw</h1></router-link>
       <div class="navigation" v-if="!pather">
         <router-link to="/about">О нас</router-link> 
-        <router-link to="/profile">Вход</router-link>
+        <router-link to="/signin">Вход</router-link>
       </div>
     </div>
     <router-view/>
@@ -21,25 +21,30 @@ export default {
       pather: false
     }
   },
+  computed: {
+    user () {
+      try {
+        const data = Object.assign({}, this.$store.getters.user);
+        return  data        
+      }
+      catch (e){ console.log(e)}
+    },
+  },
   watch: {
     '$route' (to, from){
-        console.log(to, "asdzx")
+        //console.log(to, "asdzx")
         if(to.path != '/') {
           this.pather = true
         }
         else {
           this.pather = false
         }
+
+        if(to.path == '/signin') !!this.user.email? this.$router.push('/profile') : this.$router.push('/signup')
     }
   },
   created() {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log (user)
-      } else {
-        console.log (error)
-      }
-    });
+    this.$store.dispatch('CHECKAUTH')
   },
   mounted() {
    

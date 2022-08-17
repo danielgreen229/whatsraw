@@ -41,27 +41,12 @@ data(){
 },
 methods: {
   userRegistration() {
-
       const data = {
         email: this.email,
         password: this.password
       }
-      firebase
-      .auth()
-      .createUserWithEmailAndPassword(data.email,data.password)
-      .then((res) => {
-        console.log(res.user)
-        /*res.user
-          .updateProfile({
-            displayName: this.user.name
-          })
-          .then(() => {
-            this.$router.push('/login')
-          });*/
-      })
-      .catch((error) => {
-         alert(error.message);
-      });
+     this.$store.dispatch('SIGNUP', data)
+     this.$router.push('/signin')
     },
   setError (ind) {
       if(ind == 0)

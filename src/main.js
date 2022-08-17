@@ -36,13 +36,23 @@ import 'firebase/storage';
 
 
 firebase.initializeApp({
-  apiKey: "AIzaSyChVMYLJgeGpVM09Vk0_klixiuHnGoMuP4",
-  authDomain: "wats-raw.firebaseapp.com",
-  projectId: "wats-raw",
-  storageBucket: "wats-raw.appspot.com",
-  messagingSenderId: "173277583897",
-  appId: "1:173277583897:web:787ebfc1432e8980aa6888",
-  measurementId: "G-X60BT6QHZM"
+  // apiKey: "AIzaSyChVMYLJgeGpVM09Vk0_klixiuHnGoMuP4",
+  // authDomain: "wats-raw.firebaseapp.com",
+  // projectId: "wats-raw",
+  // storageBucket: "wats-raw.appspot.com",
+  // messagingSenderId: "173277583897",
+  // appId: "1:173277583897:web:787ebfc1432e8980aa6888",
+  // measurementId: "G-X60BT6QHZM"
+
+
+  //test
+   apiKey: "AIzaSyB7d_6nS_3Yd6RcYNzXXDcJHbZJ4sJPLDs",
+  authDomain: "tester-34229.firebaseapp.com",
+  projectId: "tester-34229",
+  storageBucket: "tester-34229.appspot.com",
+  messagingSenderId: "97716623690",
+  appId: "1:97716623690:web:79881d623d4ac4ec5309b3",
+  measurementId: "G-X550SDPWK4"
 })
 
 
