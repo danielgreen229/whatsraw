@@ -1,5 +1,6 @@
 <template>
   <div class="signin">
+    <transition name="slide-fade-rev" ><h1 v-if="error != ''" class="error-info__promt">{{error}}</h1></transition>
     <div class="signin-login-card__div">
       <div class="signin-login-card-container">
         <h1 class="signin-login-txt__h">Вход</h1>
@@ -23,15 +24,33 @@
 </template>
 
 <script>
+import firebase from "firebase";
+
 export default {
 data(){
   return {
     error: '',
     email: '',
-    password: ''
+    password: '',
   }
 },
 methods: {
+    userLogin() {
+        const data = {
+            email:this.email,
+            password:this.password
+        }
+        firebase
+        .auth()
+        .signInWithEmailAndPassword(data.email, data.password)
+        .then((res) => {
+            console.log(res)
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    },
+    
   setError (ind) {
       if(ind == 0)
         this.error = 'Заполните все поля!'
@@ -44,6 +63,9 @@ methods: {
     else if (this.password == '') {
       this.setError(0)
     } 
+    else if (this.email != '' && this.password != '') {
+        this.userLogin()
+    }
   }  
 }
 }

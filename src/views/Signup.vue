@@ -27,6 +27,9 @@
 </template>
 
 <script>
+import firebase from "firebase";
+
+
 export default {
 data(){
   return {
@@ -37,6 +40,29 @@ data(){
   }
 },
 methods: {
+  userRegistration() {
+
+      const data = {
+        email: this.email,
+        password: this.password
+      }
+      firebase
+      .auth()
+      .createUserWithEmailAndPassword(data.email,data.password)
+      .then((res) => {
+        console.log(res.user)
+        /*res.user
+          .updateProfile({
+            displayName: this.user.name
+          })
+          .then(() => {
+            this.$router.push('/login')
+          });*/
+      })
+      .catch((error) => {
+         alert(error.message);
+      });
+    },
   setError (ind) {
       if(ind == 0)
         this.error = 'Заполните все поля!'
@@ -51,8 +77,11 @@ methods: {
     } 
     else if (this.confPassword == '') {
       this.setError(0)
-    } 
-  }  
+    }
+    else if (this.email != '' && this.password != '' && this.confPassword != '') {
+      this.userRegistration()
+    }
+  }
 }
 }
 </script>
