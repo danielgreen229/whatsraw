@@ -23,11 +23,9 @@
         </div>
 
         <div class="link-block-nav__div">
-          <div>
             <h1 @click="setStep(0)" class="link-block-nav__h1" :class="{'current-nav': step == 0, 'no-current-nav': step != 0}">Загрузка таблицы</h1>
             <h1 @click="setStep(1)" class="link-block-nav__h1" :class="{'current-nav': step == 1, 'no-current-nav': step != 1}">Настройка шаблона</h1>
             <h1 @click="setStep(2)" class="link-block-nav__h1" :class="{'current-nav': step == 2, 'no-current-nav': step != 2}">Отправка</h1>
-          </div>
         </div>
         
         <div v-show="step == 0">

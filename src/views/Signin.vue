@@ -1,6 +1,5 @@
 <template>
   <div class="signin">
-    {{user}}
     <transition name="slide-fade-rev" ><h1 v-if="error != ''" class="error-info__promt">{{error}}</h1></transition>
     <div class="signin-login-card__div">
       <div class="signin-login-card-container">
