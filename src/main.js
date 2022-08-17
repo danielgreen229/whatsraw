@@ -28,8 +28,36 @@ Vue.use(new VueSocketIO({
 
 Vue.config.productionTip = false
 
-new Vue({
-  router,
-  store,
-  render: function (h) { return h(App) }
-}).$mount('#app')
+import firebase from 'firebase/app'
+import 'firebase/auth';
+import 'firebase/database';
+import 'firebase/storage';
+
+
+
+firebase.initializeApp({
+  apiKey: "AIzaSyChVMYLJgeGpVM09Vk0_klixiuHnGoMuP4",
+  authDomain: "wats-raw.firebaseapp.com",
+  projectId: "wats-raw",
+  storageBucket: "wats-raw.appspot.com",
+  messagingSenderId: "173277583897",
+  appId: "1:173277583897:web:787ebfc1432e8980aa6888",
+  measurementId: "G-X60BT6QHZM"
+})
+
+
+
+let app
+
+
+
+firebase.auth().onAuthStateChanged(() => {
+  if(!app) {
+	app = new Vue({
+  		router,
+  		store,
+  		
+  		render: function (h) { return h(App) }
+		}).$mount('#app')
+	}
+})

@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "dropzone": "^6.0.0-beta.2",
+    "firebase": "^8.3.0",
     "json-as-xlsx": "^2.4.2",
     "qr-creator": "^1.0.0",
     "socket.io-client": "^4.5.1",

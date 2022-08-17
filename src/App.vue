@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import firebase from "firebase";
+
 export default {
   name: 'apper',
   data() {
@@ -30,6 +32,15 @@ export default {
         }
     }
   },
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.log (user)
+      } else {
+        console.log (error)
+      }
+    });
+  },
   mounted() {
    
     if(this.$route.path != '/') {
@@ -38,7 +49,8 @@ export default {
     else {
       this.pather = false
     }
-  }
+  }, 
+  
 }
 </script>
 
