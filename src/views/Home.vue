@@ -220,7 +220,15 @@ export default {
     window.removeEventListener('resize', this.onResize); 
     window.removeEventListener('scroll', this.onScroll)
   },
-
+  computed: {
+    user () {
+      try {
+        const data = Object.assign({}, this.$store.getters.user);
+        return  data        
+      }
+      catch (e){ console.log(e)}
+    },
+  },
   methods: {  
     onScroll() {
       this.scrollY = window.scrollY
@@ -229,7 +237,7 @@ export default {
       this.Wwidth = window.innerWidth
     },
     goTo(ind) {
-      if(ind == 0) { this.$router.push('/signup') }
+      if(ind == 0) { !!this.user.email? this.$router.push('/profile') : this.$router.push('/signup') }
       else if(ind == 1) { this.$router.push('/profile') }
       else if(ind == 2) { this.$router.push('/about') }
     }

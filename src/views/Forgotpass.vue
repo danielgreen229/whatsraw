@@ -25,17 +25,7 @@ export default {
   },
   methods: {
     forgetPassword() {
-        firebase
-        .auth()
-        .sendPasswordResetEmail(this.user.email)
-        .then(() => {
-            alert('Check your registered email to reset the password!')
-            this.user = {   
-              email: ''
-            }
-        }).catch((error) => {
-          alert(error)
-        })
+        this.$store.dispatch('FORGOTPASS', data)
     }
   }
 };
