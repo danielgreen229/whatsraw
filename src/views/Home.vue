@@ -20,6 +20,7 @@
     	<h1 class="home-title__h1">Рассылка в <mark class="mark-whatsapp">WhatsApp</mark></br> из <mark class="mark-whatsapp">Excel</mark> таблиц</h1>
     	<p class="home-title__p">Создавайте диалоги и</br>отправляйте сообщения из таблиц</p>
     	<button @click="goTo(0)" class="buttons-0 home-reg__button">Зарегистрироваться!</button>
+      <button @click="goTo(3)" v-if="Wwidth < 480" class="home-enter__button">Войти</button>
     </div>
     <div class="home-block-0__container" v-if="Wwidth > 480">
       <div class="home-block-0-info__div">
@@ -121,7 +122,7 @@
         </kinesis-container>
       </div>
     </div>
-    <div class="home-block-1-sol__div">
+    <div v-if="Wwidth > 480" class="home-block-1-sol__div">
       <h1 class="home-block-0-sol-main__h1">Способы использования</h1>
       <p style="text-align: center;">Проще чем вы думаете</p>
       <div class="home-block-0-sol-div__container">
@@ -144,9 +145,9 @@
     </div>
     <div class="home-block-footer__container">
       <div class="home-block-footer__text">
-        <p>Whats Raw никоим образом не связан, не авторизован, не поддерживается, не спонсируется и не поддерживается WhatsApp или любым из его филиалов или дочерних компаний. Это независимое и неофициальное программное обеспечение. Не используйте этот сервис для рассылки спама или массовых сообщений. Используйте на свой риск.</p>
+        <p class="home-block-footer__p">Whats Raw никоим образом не связан, не авторизован, не поддерживается, не спонсируется и не поддерживается WhatsApp или любым из его филиалов или дочерних компаний. Это независимое и неофициальное программное обеспечение. Не используйте этот сервис для рассылки спама или массовых сообщений. Используйте на свой риск.</p>
       </div>
-      <div class="home-block-footer__roting">
+      <div v-if="Wwidth > 480" class="home-block-footer__roting">
         <h1 class="home-block-footer__h1">Быстрые ссылки</h1>
         <div class="home-block-footer__nav">
           <p @click="goTo(0)" class="home-block-footer__p">Регистрация</p>
@@ -240,6 +241,7 @@ export default {
       if(ind == 0) { !!this.user.email? this.$router.push('/profile') : this.$router.push('/signup') }
       else if(ind == 1) { this.$router.push('/profile') }
       else if(ind == 2) { this.$router.push('/about') }
+      else if(ind == 3) { this.$router.push('/signin') }
     }
   }
 }
@@ -519,6 +521,24 @@ export default {
   opacity: 0.85;
 
 }
+.home-enter__button {
+    background-color: #477bf8;
+    border: none;
+    z-index: 3;
+	margin-top: 4vw;
+	margin-bottom: 5vw;
+  transition: 1s;
+   font-size: 8vw;
+  color: white;
+  border-radius: 0;
+  font-weight: bold;
+  padding: 1vw;
+  cursor: pointer;
+  }
+.home-enter__button:hover {
+  opacity: 0.85;
+
+}
 .home-title__container {
 	    display: flex;
     width: calc(100% - 30vw);
@@ -652,7 +672,23 @@ export default {
   opacity: 0;
 }
 
-
+@media (max-width: 480px) {
+.home-block-footer__container {
+  margin-left: -33vw;
+}
+.circle-1 {
+  right: 1vw !important;
+}
+.home-block-footer__text {
+  width: 50%;
+}
+.home-block-footer__p {
+font-size: 1.5vw;
+}
+.home-block-footer__container {
+height: 25vw;
+}
+}
 
 
 

@@ -10,11 +10,11 @@
         </div>
         <div class="signup-password__container">
           <p class="signup-password-txt__p">Пароль:</p> 
-          <input v-model="password" class="signup__input" type="text" placeholder="Пароль">
+          <input v-model="password" class="signup__input" type="password" placeholder="Пароль">
         </div>
         <div class="signup-conf-password__container">
           <p class="signup-conf-password-txt__p">Подтвердите пароль:</p> 
-          <input v-model="confPassword" class="signup__input" type="text" placeholder="Подтвердите пароль">
+          <input v-model="confPassword" class="signup__input" type="password" placeholder="Подтвердите пароль">
         </div>
         <div class="signup__line"></div>
         <button @click="checkInput()" class="signup-create-acc__btn">Зарегистрироваться</button>
@@ -40,6 +40,9 @@ data(){
   }
 },
 methods: {
+  showPassword() {
+
+  },
   userRegistration() {
       const data = {
         email: this.email,
@@ -63,6 +66,10 @@ methods: {
     else if (this.confPassword == '') {
       this.setError(0)
     }
+    else if (this.password != this.confPassword) {
+      alert('Пароли должны совпадать');
+      return;
+    }
     else if (this.email != '' && this.password != '' && this.confPassword != '') {
       this.userRegistration()
     }
@@ -71,13 +78,19 @@ methods: {
 }
 </script>
 
-<style>
+<style scoped>
+body {
+   background-image: url('../assets/signup/signupin.svg');
+   background-repeat: no-repeat;
+}
 .signup {
   height: 100vh;
   width: 100%;
 }
 .signup-register-card__div {
+  background: white;
   box-sizing: border-box;
+  box-shadow: 0 1vw 3vw rgb(0 0 0 / 18%) !important;
     padding-right: 2vw;
     padding-left: 2vw;
   height: 30.8vw;
@@ -104,8 +117,10 @@ methods: {
 }
 .signup-register-txt__h {
   font-size: 1.8vw;
-    position: relative;
-    left: 35%;
+   justify-content: center;
+    align-items: center;
+    /* left: 45%; */
+    display: flex;
 }
 .signup-email-txt__p {
   margin-top: 0;
@@ -134,6 +149,7 @@ methods: {
 .signup-conf-password-txt__p {
    margin:0;
    margin-bottom: 0.5vw;
+   font-size: 1.5vw;
 }
 .signup__input{
   width: 100%;
@@ -176,5 +192,64 @@ methods: {
 .signup-enter-acc__p {
   margin-right: 1.5vw;
 }
-
+@media (max-width: 480px) {
+.signup-register-card__div {
+  height: 45%;
+  width: 90%;
+  padding-right: 0;
+    padding-left: 0;
+}
+.signup-register-txt__h {
+  font-size: 4.5vw;
+}
+.signup-register-card__container {
+  box-sizing: border-box;
+    padding: 5vw;
+}
+.signup-email-txt__p {
+  margin-bottom: 1.5vw;
+    font-size: 4vw;
+}
+.signup__input {
+  height: 7vw;
+  padding: 4vw 3vw;
+  border-radius: 1.3vw;
+  font-size: 3.5vw;
+  border: 0.3vw solid #d1d3e2;
+}
+.signup-password__container {
+  margin-top: 3vw;
+}
+.signup-password-txt__p {
+  font-size: 4vw;
+  margin-bottom: 1.5vw;
+}
+.signup-conf-password__container {
+  margin-top: 3vw;
+}
+.signup-conf-password-txt__p{
+  margin-bottom: 1.5vw;
+    font-size: 4vw;
+}
+.signup__line{
+  margin-top: 4vw;
+    margin-bottom: 4vw;
+}
+.signup-create-acc__btn{
+  height: 8vw;
+  font-size: 3.5vw;
+}
+.signup-enter-acc__div {
+  margin-top: 5vw;
+    font-size: 2.5vw;
+}
+}
+@media (max-width: 375px) {
+.signup-register-card__div {
+  height: 55%;
+  width: 90%;
+  padding-right: 0;
+    padding-left: 0;
+}
+}
 </style>

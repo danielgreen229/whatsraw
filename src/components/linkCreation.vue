@@ -123,7 +123,7 @@
         
         <div class="nav-bottom-buttons__container">
           <div class="nav-bottom-buttons__div nav-div-but-0"><button @click="BottomButtonStep(0)" v-show="prevStep != ''" class="buttons-0">{{prevStep}}</button></div>
-          <div class="nav-bottom-buttons__div nav-div-but-1"><button @click="BottomButtonStep(1)" v-show="nextStep != ''" class="buttons-0">{{nextStep}}</button></div>
+          <div class="nav-bottom-buttons__div nav-div-but-1"><button @click="BottomButtonStep(1)" v-show="nextStep != ''" class="buttons-0 next-step__btn">{{nextStep}}</button></div>
         </div>
 
         <div v-if="step == 1 || step == 2" class="link-sorted-table__container">
@@ -144,7 +144,7 @@
     </div>
       <div class="home-block-footer__container">
       <div class="home-block-footer__text">
-        <p>Whats Raw никоим образом не связан, не авторизован, не поддерживается, не спонсируется и не поддерживается WhatsApp или любым из его филиалов или дочерних компаний. Это независимое и неофициальное программное обеспечение. Не используйте этот сервис для рассылки спама или массовых сообщений. Используйте на свой риск.</p>
+        <p class="home-block-footer__p">Whats Raw никоим образом не связан, не авторизован, не поддерживается, не спонсируется и не поддерживается WhatsApp или любым из его филиалов или дочерних компаний. Это независимое и неофициальное программное обеспечение. Не используйте этот сервис для рассылки спама или массовых сообщений. Используйте на свой риск.</p>
       </div>
       <div class="home-block-footer__roting">
         <h1 class="home-block-footer__h1">Быстрые ссылки</h1>
@@ -1030,7 +1030,7 @@ export default {
     margin-top: 8vw;
         margin-left: 3vw;
   }
-  p {
+  .home-block-footer__p {
     text-align: left !important;
   }
   .link {
@@ -1132,5 +1132,80 @@ export default {
     justify-content: space-between;
     width: 100%
   }
-
+@media(max-width: 480px) {
+.link-main__container[data-v-964fd6ee] {
+    margin-top: 15vw;
+     margin-left: 0
+}
+  .link-step-0__h1 {
+  font-size: 4vw;
+}
+.next-step__btn {
+  font-size: 4vw;
+  margin-top: 45vw;
+}
+.home-block-footer__p {
+  font-size: 1.5vw;
+}
+.link-step-info__block {
+    width: 100%;
+    height: 12vw;
+    padding: 1vw 1vw 1vw 7vw;
+    box-sizing: border-box;
+    background-color: #92929221;
+    margin: 2vw 0vw 3vw 0vw;
+    border-radius: 3vw;
+}
+.link-step-0__p {
+    margin-top: 0vw;
+    margin-bottom: 0vw;
+    line-height: 1.4325em;
+    font-size: 3.3vw;
+}
+.vue-dropzone {
+    margin-top: 9vw;
+    border: 0.2vw solid #e5e5e5;
+    font-family: "Roboto", sans-serif;
+    font-size: 1vw;
+    padding: 0.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25vw;
+    min-height: 10vw;
+}
+.dz-message {
+    font-size: 4vw !important;
+}
+.link-step-0__h1 {
+    text-align: left;
+    /* margin-right: 1vw; */
+    font-size: 4vw;
+}
+.link__video-yt {
+    width: 70vw;
+    height: 40vw;
+    margin-top: 1vw;
+    transition: 0.6s;
+    position: absolute;
+    top: 94vw;
+    left: 15vw;
+}
+.home-block-footer__container {
+    background-color: #222222;
+    width: calc(100% + 23vw);
+    margin-left: -19vw;
+    height: 25vw;
+    margin-top: 85vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
+    transform: translateY(1vw);
+}
+.home-block-footer__roting {
+  display: none;
+}
+}
 </style>

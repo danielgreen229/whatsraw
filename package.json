@@ -7,6 +7,8 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@vuelidate/core": "^2.0.0-alpha.44",
+    "@vuelidate/validators": "^2.0.0-alpha.31",
     "dropzone": "^6.0.0-beta.2",
     "firebase": "^8.3.0",
     "json-as-xlsx": "^2.4.2",
