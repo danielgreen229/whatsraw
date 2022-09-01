@@ -11,7 +11,7 @@
         <div class="signin-password__container">
           <p class="signin-password-txt__p">Пароль:</p> 
           <p @click="goToForgotPass()" class="signin-password-quastion-txt__p">Забыли пароль?</p>
-          <input v-model="password" class="signin__input" type="text" placeholder="Пароль">
+          <input v-model="password" class="signin__input" type="password" placeholder="Пароль">
         </div>
         <div class="signin__line"></div>
         <button @click="checkInput()" class="signin-login__btn">Войти</button>
@@ -83,7 +83,9 @@ export default {
   width: 100%;
 }
 .signin-login-card__div {
+  background: white;
   box-sizing: border-box;
+  box-shadow: 0 1vw 3vw rgb(0 0 0 / 18%) !important;
     padding-right: 2vw;
     padding-left: 2vw;
   height: 24.7vw;
@@ -110,8 +112,11 @@ export default {
 }
 .signin-login-txt__h {
   font-size: 1.8vw;
-    position: relative;
-    left: 45%;
+   justify-content: center;
+    align-items: center;
+    /* left: 45%; */
+    display: flex;
+
 }
 .signin-email-txt__p {
   margin-top: 0;
@@ -174,5 +179,61 @@ export default {
 }
 .signin-crte-acc__p {
   margin-right: 1.5vw;
+}
+@media (max-width: 480px) {
+.signin-login-card__div {
+  height: 40%;
+  width: 90%;
+  padding-right: 0;
+    padding-left: 0;
+}
+.signin-login-txt__h {
+  font-size: 4.5vw;
+}
+.signin-login-card-container {
+  box-sizing: border-box;
+    padding: 5vw;
+}
+.signin-email-txt__p {
+  margin-bottom: 1.5vw;
+    font-size: 4vw;
+}
+.signin__input {
+  height: 7vw;
+  padding: 4vw 3vw;
+  border-radius: 1.3vw;
+  font-size: 3.5vw;
+  border: 0.3vw solid #d1d3e2;
+}
+.signin-password__container {
+  margin-top: 3vw;
+}
+.signin-password-txt__p {
+  font-size: 4vw;
+  margin-bottom: 1.5vw;
+}
+.signin-password-quastion-txt__p{
+  left: 55.5vw;
+    top: 31.9vw;
+    font-size: 3vw;
+}
+.signin__line{
+  margin-top: 4vw;
+    margin-bottom: 4vw;
+}
+.signin-login__btn{
+  height: 8vw;
+  font-size: 3.5vw;
+}
+.signin-create-acc__div {
+  margin-top: 5vw;
+    font-size: 2.5vw;
+}
+}
+</style>
+<style scoped>
+body {
+   background-image: url('../assets/signup/signupin.svg');
+   background-repeat: no-repeat;
 }
 </style>

@@ -183,15 +183,16 @@ h1, h2, h3, h4, h5, h6 {
   }
   .logo {
       font-size: 6vw;
-      padding: 1.5vw 4vw 1.5vw 4vw;
+      padding: 1.5vw 4vw 1.5vw 21vw;
       border-radius: 6vw;
-      margin-top: 3vw;
+      margin-top: 15vw;
   }
   .navigation a {
         font-size: 3.5vw;
   }
   .navigation {
     margin-top: 3vw;
+    display: none;
   }
   .home-title__h1 {
         font-size: 8vw !important;

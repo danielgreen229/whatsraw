@@ -11,8 +11,24 @@
     <settings v-if="showSettings"></settings>
 
     <div v-if="!startExcel && !showSettings" class="profile-home__block">
+
+        <div class='profile-animation__container'>
+          <div class='animation'>
+            <div class='i-mail'>
+              <div class='mail-anim'></div>
+            </div>
+            <div class='line'></div>
+            <div class='i-success'>
+              <div class='success-anim'></div>
+            </div>
+          </div>
+          <div class='message'>
+          </div>
+        </div>
       
         <button class="buttons-0" @click="startExcel = true, showSettings = false">Начать рассылку</button>
+
+        <button class="buttons-0 profile-history__btn">История отправок</button>
     
     </div>
    	
@@ -24,6 +40,7 @@
 <script>
 import linkC from '../components/linkCreation'
 import settings from '../components/settings'
+
 
 export default {
   name: 'prifile',
@@ -64,6 +81,9 @@ export default {
     margin-top: 10vw;
         z-index: 3;
 }
+.profile-history__btn {
+  margin-left: 5vw;
+}
 .profile-home__block {
       height: 100vh;
     display: flex;
@@ -87,5 +107,146 @@ export default {
     background-color: white;
     box-shadow: 0 1vw 2.5vw 0 rgb(58 59 69 / 15%);
 }
+.i-mail:after, .i-mail .mail-anim:after {
+  content: "";
+  position: absolute;
+  bottom: 0.347vw;
+  left: 0.347vw;
+  width: 1.042vw;
+  height: 0.278vw;
+  border-bottom: 0.139vw solid black;
+  border-top: 0.139vw solid black;
+}
 
+.i-mail:before, .i-mail .mail-anim:before {
+  content: "";
+  position: absolute;
+  top: 0.347vw;
+  right: 0.347vw;
+  width: 0.486vw;
+  height: 0.417vw;
+  background: black;
+}
+
+.i-success:after, .i-success .success-anim:after {
+  content: "";
+  position: absolute;
+  bottom: 0.833vw;
+  left: 0.764vw;
+  width: 1.042vw;
+  height: 0.556vw;
+  border-bottom: 0.139vw solid #e0b341;
+  border-left: 0.139vw solid #e0b341;
+  transform: rotate(-45deg);
+}
+
+.profile-animation__container {
+  position: absolute;
+    top: 30%;
+    /* left: calc(50% - 240px); */
+    width: 37.5vw;
+}
+
+.animation {
+  width: 37.5vw;
+  height: 2.361vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.i-mail, .i-mail .mail-anim {
+  width: 2.778vw;
+  height: 2.083vw;
+  border-radius: 5% 5%;
+  border: 0.139vw solid black;
+  position: relative;
+  animation: transformS 0.3s linear;
+}
+@keyframes transformS {
+  50% {
+    transform: scale(0.5, 0.5);
+    opacity: 0.5;
+  }
+}
+.i-mail .mail-anim {
+  margin: -0.139vw 0 0 -0.139vw;
+  animation: moveL 0.8s linear;
+}
+@keyframes moveL {
+  100% {
+    transform: translateX(15.278vw) rotateY(90deg);
+  }
+}
+
+.line {
+  padding: 0.069vw 14.583vw;
+  background-image: linear-gradient(to right, #000 30%, rgba(255, 255, 255, 0) 0%);
+  background-position: top;
+  background-size: 1.042vw 0.139vw;
+  background-repeat: repeat-x;
+}
+
+.i-success, .i-success .success-anim {
+  width: 2.778vw;
+  height: 2.083vw;
+  border-radius: 5% 5%;
+  border: 0.139vw solid #e0b341;
+  position: relative;
+  animation: transformB 0.3s 1.4s linear forwards;
+}
+.i-success:after, .i-success .success-anim:after {
+  animation: transformBA 0.3s 1.4s linear forwards;
+}
+@keyframes transformB {
+  50% {
+    transform: scale(1.5, 1.5);
+    background: #e0b341;
+  }
+  100% {
+    background: #e0b341;
+  }
+}
+@keyframes transformBA {
+  100% {
+    border-bottom: 0.139vw solid #fff;
+    border-left: 0.139vw solid #fff;
+  }
+}
+.i-success .success-anim {
+  margin: -0.139vw 0 0 -0.139vw;
+  animation: moveR 0.8s 1s linear;
+}
+@keyframes moveR {
+  0% {
+    transform: translateX(-15.278vw) rotateY(90deg);
+  }
+  50% {
+    transform: translateX(0) rotateY(0);
+  }
+}
+
+.message {
+  text-align: center;
+  margin-top: 0.694vw;
+  font-family: Roboto, sans-serif;
+}
+@media (max-width: 480px) {
+.profile-header__container {
+  height: 12vw;
+  margin-left: -3vw;
+}
+.profile-header__h1 {
+    font-size: 4.3vw;
+}
+.profile-home__block {
+  flex-direction: column;
+}
+.profile-history__btn {
+  margin-top: 10vw;
+}
+.profile-animation__container {
+  display: none;
+}
+}
 </style>
