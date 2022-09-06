@@ -177,6 +177,9 @@ h1, h2, h3, h4, h5, h6 {
 
 
 @media (max-width: 480px){
+  .home-block-footer__container {
+    opacity: 0 !important;
+  }
   #app {
     margin-left: 3vw;
     margin-right: 3vw;
@@ -186,6 +189,8 @@ h1, h2, h3, h4, h5, h6 {
       padding: 1.5vw 4vw 1.5vw 4vw;
       border-radius: 6vw;
       margin-top: 15vw;
+          margin-left: 3vw;
+
   }
   .navigation a {
         font-size: 3.5vw;

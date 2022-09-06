@@ -76,6 +76,9 @@ export default {
 
 
 <style>
+
+
+
 .profile-back-profile__button {
       position: absolute;
     margin-top: 10vw;

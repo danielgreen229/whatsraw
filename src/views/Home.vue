@@ -689,6 +689,7 @@ font-size: 1.5vw;
 .home-block-footer__container {
 height: 25vw;
 }
+
 }
 
 
