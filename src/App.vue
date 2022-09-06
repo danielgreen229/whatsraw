@@ -183,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   .logo {
       font-size: 6vw;
-      padding: 1.5vw 4vw 1.5vw 21vw;
+      padding: 1.5vw 4vw 1.5vw 4vw;
       border-radius: 6vw;
       margin-top: 15vw;
   }
@@ -212,12 +212,34 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 8vw;
   }
   .home-reg__button {
-    margin-top: 10vw !important;
-    margin-bottom: 8vw !important;
-   
+    width: 94% !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: -33vw !important;
+  }
+  .home-block-1-ex__div {
+    display:none !important;
+  }
+  .home-block-0-sol-div__container {
+        display: flex;
+    flex-direction: column !important;
+        align-items: center !important;
+  }
+  .home-block-0-sol-main__h1 {
+        font-size: 5vw !important;
+    text-align: left !important;
+  }
+  .home-block-0-sol-h1__content {
     width: 100% !important;
   }
-
+  .home-block-0-sol__img {
+        width: 20vw !important;
+    height: 20vw !important;
+  }
+  .home-block-0-sol__h1 {
+      font-size: 5vw !important;
+  }
 }
 
 

@@ -20,7 +20,7 @@
     	<h1 class="home-title__h1">Рассылка в <mark class="mark-whatsapp">WhatsApp</mark></br> из <mark class="mark-whatsapp">Excel</mark> таблиц</h1>
     	<p class="home-title__p">Создавайте диалоги и</br>отправляйте сообщения из таблиц</p>
     	<button @click="goTo(0)" class="buttons-0 home-reg__button">Зарегистрироваться!</button>
-      <button @click="goTo(3)" v-if="Wwidth < 480" class="home-enter__button">Войти</button>
+     
     </div>
     <div class="home-block-0__container" v-if="Wwidth > 480">
       <div class="home-block-0-info__div">
@@ -278,7 +278,7 @@ export default {
 }
 .home-block-footer__text {
   width: 50%;
-  padding: 3vw;
+  padding: 2vw;
       box-sizing: border-box;
 }
 .home-block-footer__roting {
@@ -550,7 +550,8 @@ export default {
 }
 .home-kinetik__container {
 	height: 100%;
-    width: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 .home-circle__div {
 	
