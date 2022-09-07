@@ -1,6 +1,12 @@
 <template>
   <div class="prifile">
+    <div v-if="Wwidth < 480" class="background-profile__svg"></div>
    	<div class="profile-header__container">
+
+
+    
+
+
 
       <div class="profile-header__div" @click="goTo(0), startExcel = false">
         <h1 class="profile-header__h1">{{user.email}}</h1>
@@ -26,7 +32,7 @@
           </div>
         </div>
       
-        <button class="buttons-0" @click="startExcel = true, showSettings = false">Начать рассылку</button>
+        <button class="buttons-0 profile-history__btn" @click="startExcel = true, showSettings = false">Начать рассылку</button>
 
         <button class="buttons-0 profile-history__btn">История отправок</button>
     
@@ -49,7 +55,7 @@ export default {
   },
   data(){
     return {
-
+      Wwidth: window.innerWidth,
       startExcel: false,
       showSettings: false
     }
@@ -76,7 +82,20 @@ export default {
 
 
 <style>
-
+.background-profile__svg {
+   background-image: url(/img/signupin.aad50cb3.svg);
+      background-repeat: no-repeat;
+    width: 100%;
+    height: 117vw;
+    position: absolute;
+    background-size: 200%;
+    margin-left: -3vw;
+    top: 0;
+    transform-origin: center;
+    transform: rotate(180deg);
+  z-index: -1;
+      margin-top: 12vw;
+}
 
 
 .profile-back-profile__button {
@@ -85,7 +104,7 @@ export default {
         z-index: 3;
 }
 .profile-history__btn {
-  margin-left: 5vw;
+      width: calc(100% - 6vw);
 }
 .profile-home__block {
       height: 100vh;
@@ -236,11 +255,12 @@ export default {
 }
 @media (max-width: 480px) {
 .profile-header__container {
-  height: 12vw;
+      height: 16vw;
   margin-left: -3vw;
 }
 .profile-header__h1 {
     font-size: 4.3vw;
+        margin-top: 3vw;
 }
 .profile-home__block {
   flex-direction: column;
