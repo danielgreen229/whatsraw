@@ -207,6 +207,20 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 3vw;
     margin-right: 3vw;
   }
+  .error-info__promt {
+      background-color: black;
+    margin-top: 2vw;
+    position: absolute;
+    font-weight: bold;
+    z-index: 5;
+    color: white;
+    font-size: 5vw;
+    padding: 0.5vw 1vw 0.5vw 1vw;
+    border-radius: 3vw;
+    transition: 1s;
+    position: fixed;
+    top: 0;
+}
   .logo {
       font-size: 6vw;
       padding: 1.5vw 4vw 1.5vw 4vw;
