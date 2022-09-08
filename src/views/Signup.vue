@@ -79,10 +79,7 @@ methods: {
 </script>
 
 <style scoped>
-body {
-   background-image: url('../assets/signup/signupin.svg');
-   background-repeat: no-repeat;
-}
+
 .signup {
   height: 100vh;
   width: 100%;

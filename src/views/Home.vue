@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-  	<div class="home-background__div">
+  	<div v-if="Wwidth > 480" class="home-background__div">
   		   <kinesis-container class="home-kinetik__container">
   		   	  <kinesis-element :strength="10">
                 <div class="home-circle__div circle-1"></div>
@@ -16,11 +16,18 @@
               </kinesis-element>
           </kinesis-container>
   	</div>
+    <div v-else>
+      <div class="background__svg"></div>
+      
+      <p @click="goTo(3)" class="home-login__p">Вход</p>
+    </div>
+
+
     <div class="home-title__container">
     	<h1 class="home-title__h1">Рассылка в <mark class="mark-whatsapp">WhatsApp</mark></br> из <mark class="mark-whatsapp">Excel</mark> таблиц</h1>
     	<p class="home-title__p">Создавайте диалоги и</br>отправляйте сообщения из таблиц</p>
     	<button @click="goTo(0)" class="buttons-0 home-reg__button">Зарегистрироваться!</button>
-      <button @click="goTo(3)" v-if="Wwidth < 480" class="home-enter__button">Войти</button>
+     
     </div>
     <div class="home-block-0__container" v-if="Wwidth > 480">
       <div class="home-block-0-info__div">
@@ -248,6 +255,31 @@ export default {
 </script>
 
 <style>
+.home-login__p {
+  position: absolute;
+  right: 0;
+  font-size: 5vw;
+  color: white;
+  padding: 0;
+  margin: 0 3vw;
+  height: 14vw;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+.background__svg {
+   background-image: url(/img/signupin.aad50cb3.svg);
+      background-repeat: no-repeat;
+    width: 100%;
+    height: 117vw;
+    position: absolute;
+    background-size: 200%;
+    margin-left: -3vw;
+    top: 0;
+    transform-origin: center;
+    transform: rotate(180deg);
+
+}
 .home-block-footer__h1 {
   color: white; 
   font-size: 3vw;  
@@ -278,7 +310,7 @@ export default {
 }
 .home-block-footer__text {
   width: 50%;
-  padding: 3vw;
+  padding: 2vw;
       box-sizing: border-box;
 }
 .home-block-footer__roting {
@@ -550,7 +582,8 @@ export default {
 }
 .home-kinetik__container {
 	height: 100%;
-    width: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 .home-circle__div {
 	
@@ -575,34 +608,34 @@ export default {
 }
 .circle-2 {
 	background-color: aliceblue;
-    width: calc(3vw + 2.5vh);
-    height: calc(3vw + 2.5vh);
-    z-index: 21;
-    right: calc(19vw + 5vh);
-    top: calc(3vw + 11vh);
-    position: absolute;
+  width: calc(3vw + 2.5vh);
+  height: calc(3vw + 2.5vh);
+  z-index: 21;
+  right: calc(19vw + 5vh);
+  top: calc(3vw + 11vh);
+  position: absolute;
 
 
-    right: calc(22vw);
-    top: calc(11vw);
-    max-width: 5vw;
-    max-height: 5vw;
+  right: calc(22vw);
+  top: calc(11vw);
+  max-width: 5vw;
+  max-height: 5vw;
 }
 
 .circle-1 {
   border: 1.5vw solid #25d366;
 	background-color: #477bf8;	
 	width: calc(50vw + 10vh);
-    background-color: #477bf8;
-    height: calc(50vw + 10vh);
-    z-index: 0;
-    right: -11vw !important;
-    top: -27vw;
-    position: absolute;
+  background-color: #477bf8;
+  height: calc(50vw + 10vh);
+  z-index: 0;
+  right: -11vw !important;
+  top: -27vw;
+  position: absolute;
 
 
-        max-width: 55vw;
-    max-height: 55vw;
+  max-width: 55vw;
+  max-height: 55vw;
 }
 .circle-0 {
 	background-color: aliceblue;
@@ -638,56 +671,46 @@ export default {
     z-index: 1;
 }
 
-
-
-
 .slide-fade-enter-active {
   transition: all .5s ease;
-  
 }
 .slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-  
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0); 
 }
 .slide-fade-enter, .slide-fade-leave-to
-{
- 
+{ 
   transform: translateY(3vw);
   opacity: 0;
 }
 
-
 .slide-fade-rev-enter-active {
   transition: all .5s ease;
-  
 }
 .slide-fade-rev-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-  
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0); 
 }
 .slide-fade-rev-enter, .slide-fade-rev-leave-to
 {
- 
   transform: translateY(-3vw);
   opacity: 0;
 }
 
 @media (max-width: 480px) {
-.home-block-footer__container {
-  margin-left: -33vw;
-}
-.circle-1 {
-  right: 1vw !important;
-}
-.home-block-footer__text {
-  width: 50%;
-}
-.home-block-footer__p {
-font-size: 1.5vw;
-}
-.home-block-footer__container {
-height: 25vw;
-}
+  .home-block-footer__container {
+    margin-left: -33vw;
+  }
+  .circle-1 {
+    right: 1vw !important;
+  }
+  .home-block-footer__text {
+    width: 50%;
+  }
+  .home-block-footer__p {
+    font-size: 1.5vw;
+  }
+  .home-block-footer__container {
+    height: 25vw;
+  }
 }
 
 

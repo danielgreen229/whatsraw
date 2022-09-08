@@ -902,6 +902,11 @@ export default {
 .dz-filename {
   width: 50% !important;
 }
+@media(max-width: 480px) {
+  .dz-message {
+    font-size: 4vw !important;
+  }
+}
 </style>
 
 
@@ -1133,7 +1138,7 @@ export default {
     width: 100%
   }
 @media(max-width: 480px) {
-.link-main__container[data-v-964fd6ee] {
+.link-main__container {
     margin-top: 15vw;
      margin-left: 0
 }
