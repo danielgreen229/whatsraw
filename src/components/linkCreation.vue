@@ -11,12 +11,12 @@
               <h1 class="card-phone-checker__h1">Номер контакта не распознан:</h1>
               <p class="card-phone-checker__div">{{SortedTable[indexPhoneChecking].FIO ? SortedTable[indexPhoneChecking].FIO : SortedTable[indexPhoneChecking].info}} - {{SortedTable[indexPhoneChecking].phone}}</p>
               <div class="card-phone-checker__input">
-                <p class="card-phone-checker__div">Введите правильный номер:</p>
+                <p class="card-phone-checker_div__p">Введите правильный номер:</p>
                 <input class="card-phone-checker-new-phone__input" v-model="newPhone"/>
               </div>
               <div class="card-phone-checker__buttons">
-                <button class="buttons-0" @click="deleteUserViaPhone">Удалить пользователя</button>
-                <button class="buttons-0" @click="changePhone">Изменить</button>
+                <button class="buttons-0 card-phone-checker__btn" @click="deleteUserViaPhone">Удалить пользователя</button>
+                <button class="buttons-0 card-phone-checker__btn" @click="changePhone">Изменить</button>
               </div>
             </div>
           </div>
@@ -902,6 +902,11 @@ export default {
 .dz-filename {
   width: 50% !important;
 }
+@media(max-width: 480px) {
+.dz-message {
+  font-size: 4vw !important;
+}
+}
 </style>
 
 
@@ -1153,7 +1158,7 @@ export default {
     padding: 1vw 1vw 1vw 7vw;
     box-sizing: border-box;
     background-color: #92929221;
-    margin: 2vw 0vw 3vw 0vw;
+    margin: 5vw 0vw 5vw 0vw;
     border-radius: 3vw;
 }
 .link-step-0__p {
@@ -1206,6 +1211,57 @@ export default {
 }
 .home-block-footer__roting {
   display: none;
+}
+.link-block-nav__div {
+  opacity: 0;
+}
+.card-phone-checker__container {
+    position: fixed;
+    background-color: white;
+    border-radius: 2vw;
+    width: 100%;
+    height: 90vw;
+    top: 25%;
+    margin-left: 13%;
+    margin-right: auto;
+    z-index: 5;
+    margin-top: 6vw;
+    max-width: 74vw;
+}
+.card-phone-checker__h1 {
+    font-size: 7vw;
+}
+.card-phone-checker__div{
+  font-size: 4vw;
+
+}
+.card-phone-checker_div__p{
+  font-size: 4vw;
+  margin-left: 8vw;
+}
+.card-phone-checker__input {
+     display: unset;
+     flex-direction: unset;
+     justify-content: unset;
+     align-items: unset;
+}
+.card-phone-checker-new-phone__input {
+    font-size: 5vw;
+    width: 45vw;
+    height: 6vw;
+    margin-left: 12vw;
+}
+.card-phone-checker__btn {
+  font-size: 4vw;
+  margin-bottom: 3vw;
+}
+.card-phone-checker__buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-content: center;
+    flex-direction: column;
+    margin-top: 5vw;
 }
 }
 </style>
