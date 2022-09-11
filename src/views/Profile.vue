@@ -157,8 +157,8 @@ export default {
   left: 0.764vw;
   width: 1.042vw;
   height: 0.556vw;
-  border-bottom: 0.139vw solid #e0b341;
-  border-left: 0.139vw solid #e0b341;
+  border-bottom: 0.139vw solid black;
+  border-left: 0.139vw solid black;
   transform: rotate(-45deg);
 }
 
@@ -213,7 +213,7 @@ export default {
   width: 2.778vw;
   height: 2.083vw;
   border-radius: 5% 5%;
-  border: 0.139vw solid #e0b341;
+  border: 0.139vw solid black;
   position: relative;
   animation: transformB 0.3s 1.4s linear forwards;
 }
@@ -223,10 +223,10 @@ export default {
 @keyframes transformB {
   50% {
     transform: scale(1.5, 1.5);
-    background: #e0b341;
+    background: black;
   }
   100% {
-    background: #e0b341;
+    background: black;
   }
 }
 @keyframes transformBA {
@@ -269,7 +269,7 @@ export default {
   margin-top: 10vw;
 }
 .profile-animation__container {
-  display: none;
+  opacity: 0;
 }
 }
 </style>

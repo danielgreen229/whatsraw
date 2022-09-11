@@ -906,6 +906,14 @@ export default {
 .dz-message {
   font-size: 4vw !important;
 }
+.dz-details, .dz-preview, .dz-image {
+    height: 23vw !important;
+    min-height: 8vw !important;
+    width: 100% !important;
+    font-size: 1.5vw !important;
+    padding: 1vw !important;
+    line-height: 1.4vw !important;
+}
 }
 </style>
 

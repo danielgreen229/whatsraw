@@ -49,8 +49,8 @@ export default {
   left: 11px;
   width: 15px;
   height: 8px;
-  border-bottom: 2px solid #e0b341;
-  border-left: 2px solid #e0b341;
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
   transform: rotate(-45deg);
 }
 
@@ -105,7 +105,7 @@ export default {
   width: 40px;
   height: 30px;
   border-radius: 5% 5%;
-  border: 2px solid #e0b341;
+  border: 2px solid #fff;
   position: relative;
   animation: transformB 0.3s 1.4s linear forwards;
 }
@@ -115,10 +115,10 @@ export default {
 @keyframes transformB {
   50% {
     transform: scale(1.5, 1.5);
-    background: #e0b341;
+    background: #fff;
   }
   100% {
-    background: #e0b341;
+    background: #fff;
   }
 }
 @keyframes transformBA {
