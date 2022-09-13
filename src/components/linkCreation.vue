@@ -1195,6 +1195,9 @@ export default {
     /* margin-right: 1vw; */
     font-size: 4vw;
 }
+.link-step-margin__h1 {
+    margin-top: 6vw;
+}
 .link__video-yt {
     width: 70vw;
     height: 40vw;

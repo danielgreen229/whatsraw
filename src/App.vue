@@ -178,7 +178,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 480px){
   .link__video-yt {
-    margin-top: 6vw !important;
+    margin-top: 20vw !important;
   }
   .card {
         padding-top: 17vw;
