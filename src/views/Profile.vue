@@ -1,8 +1,7 @@
 <template>
   <div class="prifile">
-    <div v-if="Wwidth < 480" class="background-profile__svg"></div>
+    <div v-if="Wwidth < 480" class="background-profile__svg" :class="{'background-profile-1__svg': showSettings == true}" ></div>
    	<div class="profile-header__container">
-
 
     
 
@@ -10,6 +9,7 @@
 
       <div class="profile-header__div" @click="goTo(0), startExcel = false">
         <h1 class="profile-header__h1">{{user.email}}</h1>
+        <div class="profile-header__avatar" :class="{'profile-header-1__avatar': showSettings == false}" ></div>
       </div>
     </div>
 
@@ -97,6 +97,18 @@ export default {
       margin-top: 12vw;
 }
 
+.profile-header__avatar {
+  font-size: 2vw;
+  background-image: url('../assets/profile/avatar.svg');
+  position: absolute;
+    /* max-height: 100%; */
+    width: 4vw;
+    margin-right: 9vw;
+    height: 4vw;
+    border-radius: 50%;
+    background-color: black;
+    background-repeat: no-repeat;
+}
 
 .profile-back-profile__button {
       position: absolute;
@@ -116,6 +128,9 @@ export default {
   position: absolute;
   right: 2vw;
   top: calc(7vw / 2 - 0.65vw);
+  display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
 }
 .profile-header__h1 {
   font-size: 1.3vw;
@@ -269,6 +284,25 @@ export default {
   margin-top: 10vw;
 }
 .profile-animation__container {
+  opacity: 0;
+}
+.profile-header__avatar {
+    background-image: url(/img/avatar.f3676609.svg);
+    position: absolute;
+    background-position: center;
+    /* max-height: 100%; */
+    width: 35vw;
+    margin-right: 30vw;
+    height: 35vw;
+    margin-top: calc(100% + 50vw);
+    border-radius: 50%;
+    background-color: black;
+    background-repeat: no-repeat;
+}
+.profile-header-1__avatar {
+  opacity: 0;
+}
+.background-profile-1__svg {
   opacity: 0;
 }
 }
