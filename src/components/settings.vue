@@ -1,5 +1,10 @@
 <template>
   <div class="settings">
+    <!--<div class="profile-info__container">
+      <div class="profile-info-user-balance__h1">Баланс</div>
+      <div class="profile-info-user-sendings__h1">Кол-во рассылок</div>
+      <div class="profile-info-user-lol__h1">Не придумал</div>
+    </div>-->
     <div class="settings__container">
       <div class="password_setting__div">
         <h1 class="settings__h1">Задать новый пароль</h1>
@@ -54,13 +59,16 @@ export default {
   position: relative
 }
 .settings__container {
-  padding-top: 16vw;
+  padding-top: 38vw;
+}
+.password_setting__div {
+  margin-bottom: 2vw;
 }
 .settings__h1 {
   font-family: "Poppins", sans-serif;
     color: #222222;
     line-height: 1.2em !important;
-    margin-bottom: 0;
+    margin-bottom: 0.5vw;
     margin-top: 0;
     font-weight: 600;
     font-size: 1.1vw;
@@ -69,7 +77,7 @@ export default {
 @media(max-width: 480px) {
 .settings__container {
   display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
     align-content: stretch;
@@ -88,14 +96,14 @@ export default {
     font-size: 4vw;
 }
 .password_setting__div {
-  align-items: flex-end;
+  align-items: flex-start;
     justify-content: flex-end;
     display: flex;
     flex-direction: column;
 }
 .exit_setting__div {
   margin-top: 3vw;
-  align-items: flex-end;
+  align-items: flex-start;
     justify-content: flex-end;
     display: flex;
     flex-direction: column;

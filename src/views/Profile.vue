@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <button v-if="showSettings" @click="startExcel = false, showSettings = false"  class="buttons-0 profile-back-profile__button">← Начальная страница</button>
+    <button v-if="showSettings" @click="startExcel = false, showSettings = false"  class="buttons-0 profile-back-profile__button">← Назад</button>
     <settings v-if="showSettings"></settings>
 
     <div v-if="!startExcel && !showSettings" class="profile-home__block">
