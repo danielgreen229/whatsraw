@@ -61,7 +61,7 @@
             <h1 class="link-step-0__h1" style="margin-top: 2vw">Сообщение для всех: </h1>
             <textarea class="link-step-1__textarea" v-model="message">{{message}}</textarea>
             <div class="card-2">
-              <button class="buttons-1" @click="changeMessageAll(); stepEndPoint++">Применить</button>
+              <button class="buttons-1 confirm__btn" @click="changeMessageAll(); stepEndPoint++">Применить</button>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@
         </div>
         
         <div class="nav-bottom-buttons__container">
-          <div class="nav-bottom-buttons__div nav-div-but-0"><button @click="BottomButtonStep(0)" v-show="prevStep != ''" class="buttons-0">{{prevStep}}</button></div>
+          <div class="nav-bottom-buttons__div nav-div-but-0"><button @click="BottomButtonStep(0)" v-show="prevStep != ''" class="buttons-0 upload-list__btn">{{prevStep}}</button></div>
           <div class="nav-bottom-buttons__div nav-div-but-1"><button @click="BottomButtonStep(1)" v-show="nextStep != ''" class="buttons-0 next-step__btn">{{nextStep}}</button></div>
         </div>
 
@@ -135,7 +135,7 @@
               <h1 class="programm-table__block">Сообщение</h1>
             </div>
             <div class="programm__table" v-for="item, index in SortedTable" :key="index">
-              <div class="programm-table__block">{{item.FIO}}</div>
+              <div class="programm-table__block" v-if="max-width < 480">{{item.FIO}}</div>
               <div class="programm-table-phone__block" :id="`${index}-phone`">{{item.phone}}</div>
               <div class="programm-table__block"><textarea class="programm-table__textarea" disabled v-model="item.message"></textarea> </div>
             </div>  
@@ -822,6 +822,7 @@ export default {
     width: calc(100% - 40vw);
   }
   .nav-bottom-buttons__div {
+    height: 100%;
     width: 50%;
     display: flex;
     
@@ -1150,10 +1151,39 @@ export default {
     margin-top: 15vw;
      margin-left: 0
 }
+.link__video-yt-scoped {
+    transform: scaleX(0.3) scaleY(0.3);
+    position: absolute;
+    left: 2vw;
+    top: 8.5vw;
+    margin-top: 0vw;
+    transform-origin: left;
+    opacity: 0;
+  }
   .link-step-0__h1 {
   font-size: 4vw;
 }
+.link-step-1__textarea {
+  font-size: 3.6vw;
+  height: 40vw;
+}
+.link-step-1__h1 {
+  display: none;
+}
+.link-var__container {
+  display: none;
+}
+.link-step-1-info__margin {
+  display: none;
+}
+.confirm__btn {
+  font-size: 3.5vw;
+}
 .next-step__btn {
+  font-size: 4vw;
+  margin-top: 45vw;
+}
+.upload-list__btn{
   font-size: 4vw;
   margin-top: 45vw;
 }
@@ -1187,6 +1217,7 @@ export default {
     height: 25vw;
     min-height: 10vw;
 }
+
 .dz-message {
     font-size: 4vw !important;
 }
@@ -1273,6 +1304,20 @@ export default {
     align-content: center;
     flex-direction: column;
     margin-top: 5vw;
+}
+.programm-table__block {
+  width: 100%;
+}
+.programm-table__textarea {
+  width: 100%;
+  height: 50vw; 
+  margin-top: 2vw;
+}
+.link-sorted-table__cell {
+  display: none;
+}
+.programm-table-phone__block{
+  display: none;
 }
 }
 </style>
