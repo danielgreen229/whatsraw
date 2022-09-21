@@ -20,6 +20,12 @@ main landing:
 
 Upload ur excel:
 <img width="1059" alt="Снимок экрана 2022-09-21 в 11 21 12" src="https://user-images.githubusercontent.com/69796780/191440344-b6ba8fb2-667c-4654-b032-e894ec8663e6.png">
+---------------
+Video animation: 
+
+
+https://user-images.githubusercontent.com/69796780/191441632-2d1f67be-5cff-4cef-8332-dfb80a0096aa.mov
+
 
 ---------------
 
