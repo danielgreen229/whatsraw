@@ -1,8 +1,7 @@
 <template>
   <div class="prifile">
-    <div v-if="Wwidth < 480" class="background-profile__svg"></div>
+    <div v-if="Wwidth < 480 && !showSettings" class="background-profile__svg" ></div>
    	<div class="profile-header__container">
-
 
     
 
@@ -10,10 +9,11 @@
 
       <div class="profile-header__div" @click="goTo(0), startExcel = false">
         <h1 class="profile-header__h1">{{user.email}}</h1>
+        <div class="profile-header__avatar" :class="{'profile-header-1__avatar': showSettings == false}" ></div>
       </div>
     </div>
 
-    <button v-if="showSettings" @click="startExcel = false, showSettings = false"  class="buttons-0 profile-back-profile__button">← Начальная страница</button>
+    <button v-if="showSettings" @click="startExcel = false, showSettings = false"  class="buttons-0 profile-back-profile__button">← Назад</button>
     <settings v-if="showSettings"></settings>
 
     <div v-if="!startExcel && !showSettings" class="profile-home__block">
@@ -55,7 +55,7 @@ export default {
   },
   data(){
     return {
-      Wwidth: window.innerWidth,
+      
       startExcel: false,
       showSettings: false
     }
@@ -68,6 +68,9 @@ export default {
     }
   },
   computed: {
+    Wwidth () {
+      return window.innerWidth
+    },
     user () {
       try {
         const data = Object.assign({}, this.$store.getters.user);
@@ -82,6 +85,9 @@ export default {
 
 
 <style>
+.settings {
+      padding-bottom: 15vw;
+}
 .background-profile__svg {
    background-image: url(/img/signupin.aad50cb3.svg);
       background-repeat: no-repeat;
@@ -97,6 +103,18 @@ export default {
       margin-top: 12vw;
 }
 
+.profile-header__avatar {
+  font-size: 2vw;
+  background-image: url('../assets/profile/avatar.svg');
+  position: absolute;
+    /* max-height: 100%; */
+    width: 4vw;
+    margin-right: 14vw;
+    height: 4vw;
+    border-radius: 50%;
+    background-color: black;
+    background-repeat: no-repeat;
+}
 
 .profile-back-profile__button {
       position: absolute;
@@ -116,9 +134,13 @@ export default {
   position: absolute;
   right: 2vw;
   top: calc(7vw / 2 - 0.65vw);
+  display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
 }
 .profile-header__h1 {
   font-size: 1.3vw;
+  cursor: pointer;
 }
 .profile-header__container {
 	    width: 100vw;
@@ -157,8 +179,8 @@ export default {
   left: 0.764vw;
   width: 1.042vw;
   height: 0.556vw;
-  border-bottom: 0.139vw solid #e0b341;
-  border-left: 0.139vw solid #e0b341;
+  border-bottom: 0.139vw solid black;
+  border-left: 0.139vw solid black;
   transform: rotate(-45deg);
 }
 
@@ -213,7 +235,7 @@ export default {
   width: 2.778vw;
   height: 2.083vw;
   border-radius: 5% 5%;
-  border: 0.139vw solid #e0b341;
+  border: 0.139vw solid black;
   position: relative;
   animation: transformB 0.3s 1.4s linear forwards;
 }
@@ -223,10 +245,10 @@ export default {
 @keyframes transformB {
   50% {
     transform: scale(1.5, 1.5);
-    background: #e0b341;
+    background: black;
   }
   100% {
-    background: #e0b341;
+    background: black;
   }
 }
 @keyframes transformBA {
@@ -266,10 +288,29 @@ export default {
   flex-direction: column;
 }
 .profile-history__btn {
-  margin-top: 10vw;
+  margin-top: 7vw;
 }
 .profile-animation__container {
+  opacity: 0;
+}
+.profile-header__avatar {
+    background-image: url(/img/avatar.f3676609.svg);
+    position: absolute;
+    background-position: center;
+    /* max-height: 100%; */
+    width: 35vw;
+    margin-right: 30vw;
+    height: 35vw;
+    margin-top: 100vw;
+    border-radius: 50%;
+    background-color: black;
+    background-repeat: no-repeat;
+}
+.profile-header-1__avatar {
   display: none;
+}
+.background-profile-1__svg {
+  opacity: 0;
 }
 }
 </style>

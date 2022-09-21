@@ -117,6 +117,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   padding: 1vw;
   cursor: pointer;
+  min-width: 10vw;
 }
 .buttons-0:hover, .buttons-1:hover {
   opacity: 0.85;
@@ -178,7 +179,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 480px){
   .link__video-yt {
-    margin-top: 6vw !important;
+    margin-top: 20vw !important;
   }
   .card {
         padding-top: 17vw;
@@ -251,7 +252,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 6vw 0 0 0 !important;
   }
   .buttons-0 {
-    font-size: 8vw;
+    font-size: 5vw;
   }
   .home-reg__button {
    /* width: 94% !important;

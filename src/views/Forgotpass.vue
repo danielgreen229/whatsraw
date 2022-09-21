@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     forgetPassword() {
-        this.$store.dispatch('FORGOTPASS', data)
+        this.$store.dispatch('FORGOTPASS', this.user.email)
     }
   }
 };
