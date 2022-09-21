@@ -23,3 +23,11 @@ Upload ur excel:
 Last change:
 <img width="1076" alt="Снимок экрана 2022-09-21 в 11 20 33" src="https://user-images.githubusercontent.com/69796780/191440210-af0fb290-c107-4397-a6f4-0b5282a172a3.png">
 
+---------------
+
+How to start: 
+
+1. git clone
+2. cd whatsraw
+3. npm i
+4. npm run serve
