@@ -8,5 +8,6 @@ https://zingy-faloodeh-8da855.netlify.app
 
 main branch: master
 
-<img width="1783" alt="" src="https://user-images.githubusercontent.com/69796780/191439750-1289e432-9580-4ae2-b6e1-f46bc2fc4748.png">
+<img width="1773" alt="Снимок экрана 2022-09-21 в 11 19 08" src="https://user-images.githubusercontent.com/69796780/191439904-9779abef-04da-4bfe-a08a-ec8faf026d06.png">
+
 
