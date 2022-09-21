@@ -6,12 +6,26 @@
       <div class="profile-info-user-lol__h1">Не придумал</div>
     </div>-->
     <div class="settings__container">
+       <div class="exit_setting__div">
+        <div class="settings-info-reset__div">
+          <h1 class="settings__h1">Язык</h1>
+          <p class="settings__p">Выбор языка интерфейса</p>
+        </div>
+        <button class="buttons-0 settings__btn">Русский</button>
+        </div>
+      </div>
       <div class="password_setting__div">
-        <h1 class="settings__h1">Задать новый пароль</h1>
-        <button @click="changePass" class="buttons-0 settings__btn">Задать</button>
+        <div class="settings-info-reset__div">
+          <h1 class="settings__h1">Новый пароль</h1>
+          <p class="settings__p">Защитите свои данные</p>
+        </div>
+        <button @click="changePass" class="buttons-0 settings__btn">Изменить</button>
       </div>
       <div class="exit_setting__div">
-        <h1 class="settings__h1">Выйти из профия</h1>
+        <div class="settings-info-reset__div">
+          <h1 class="settings__h1">Аккаунт</h1>
+          <p class="settings__p">Используйте разные аккаунты</p>
+        </div>
         <button @click="logout" class="buttons-0 settings__btn">Выйти</button>
       </div>
     </div>
@@ -37,6 +51,7 @@ export default {
       this.$store.dispatch('LOGOUT')
     },
     changePass() {
+      console.log(this.user.email)
       this.$store.dispatch('FORGOTPASS', this.user.email)
     },
   },
@@ -55,14 +70,33 @@ export default {
 
 
 <style>
+.settings-info-reset__div {
+  display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.settings__p {
+  font-size: 1.5vw;
+  margin: 0vw;
+}
 .settings {
   position: relative
 }
 .settings__container {
-  padding-top: 38vw;
+  padding-top: 16vw;
 }
-.password_setting__div {
+.password_setting__div, .exit_setting__div {
   margin-bottom: 2vw;
+}
+
+.password_setting__div, .exit_setting__div {
+  box-shadow: 0px 1vw 3vw rgb(0 0 0 / 10%);
+  border-radius: 0vw;
+  padding: 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
 }
 .settings__h1 {
   font-family: "Poppins", sans-serif;
@@ -71,7 +105,7 @@ export default {
     margin-bottom: 0.5vw;
     margin-top: 0;
     font-weight: 600;
-    font-size: 1.1vw;
+    font-size: 2vw;
 }
 
 @media(max-width: 480px) {
@@ -81,10 +115,16 @@ export default {
     justify-content: center;
     flex-direction: column;
     align-content: stretch;
-    padding-top: calc(100% + 65vw);
+        padding-top: 79vw;
 }
 .profile-back-profile__button {
-  margin-top: calc(100% + 24vw) !important;
+  margin-top: 21vw !important;
+}
+.settings__p {
+  font-size: 3.5vw;
+}
+.password_setting__div, .exit_setting__div {
+  padding: 4vw;
 }
 .settings__h1 {
   font-family: "Poppins", sans-serif;
@@ -93,7 +133,7 @@ export default {
     margin-bottom: 0;
     margin-top: 0;
     font-weight: 600;
-    font-size: 4vw;
+    font-size: 6vw;
 }
 .password_setting__div {
   align-items: flex-start;
@@ -101,12 +141,13 @@ export default {
     display: flex;
     flex-direction: column;
 }
-.exit_setting__div {
-  margin-top: 3vw;
-  align-items: flex-start;
-    justify-content: flex-end;
+.exit_setting__div, .password_setting__div {
+      margin-top: 3vw;
+    align-items: flex-start;
+    justify-content: space-between;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+       width: calc(100% - 8vw);
 }
 .settings__btn {
   margin-top: 1.5vw;

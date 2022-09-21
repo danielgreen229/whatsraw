@@ -1,6 +1,6 @@
 <template>
   <div class="prifile">
-    <div v-if="Wwidth < 480" class="background-profile__svg" :class="{'background-profile-1__svg': showSettings == true}" ></div>
+    <div v-if="Wwidth < 480 && !showSettings" class="background-profile__svg" ></div>
    	<div class="profile-header__container">
 
     
@@ -55,7 +55,7 @@ export default {
   },
   data(){
     return {
-      Wwidth: window.innerWidth,
+      
       startExcel: false,
       showSettings: false
     }
@@ -68,6 +68,9 @@ export default {
     }
   },
   computed: {
+    Wwidth () {
+      return window.innerWidth
+    },
     user () {
       try {
         const data = Object.assign({}, this.$store.getters.user);
@@ -82,6 +85,9 @@ export default {
 
 
 <style>
+.settings {
+      padding-bottom: 15vw;
+}
 .background-profile__svg {
    background-image: url(/img/signupin.aad50cb3.svg);
       background-repeat: no-repeat;
@@ -103,7 +109,7 @@ export default {
   position: absolute;
     /* max-height: 100%; */
     width: 4vw;
-    margin-right: 9vw;
+    margin-right: 14vw;
     height: 4vw;
     border-radius: 50%;
     background-color: black;
@@ -134,6 +140,7 @@ export default {
 }
 .profile-header__h1 {
   font-size: 1.3vw;
+  cursor: pointer;
 }
 .profile-header__container {
 	    width: 100vw;
@@ -281,7 +288,7 @@ export default {
   flex-direction: column;
 }
 .profile-history__btn {
-  margin-top: 10vw;
+  margin-top: 7vw;
 }
 .profile-animation__container {
   opacity: 0;
@@ -294,13 +301,13 @@ export default {
     width: 35vw;
     margin-right: 30vw;
     height: 35vw;
-    margin-top: calc(100% + 50vw);
+    margin-top: 100vw;
     border-radius: 50%;
     background-color: black;
     background-repeat: no-repeat;
 }
 .profile-header-1__avatar {
-  opacity: 0;
+  display: none;
 }
 .background-profile-1__svg {
   opacity: 0;
