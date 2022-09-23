@@ -61,6 +61,7 @@
             <h1 class="link-step-0__h1" style="margin-top: 2vw">Сообщение для всех: </h1>
             <textarea class="link-step-1__textarea" v-model="message">{{message}}</textarea>
             <div class="card-2">
+              <button @click="checkMsg = !checkMsg, ChangeTxt()" class="buttons-1 chek-list__btn">{{btnMsgOne}}</button>
               <button class="buttons-1 confirm__btn" @click="changeMessageAll(); stepEndPoint++">Применить</button>
             </div>
           </div>
@@ -121,21 +122,23 @@
           </div>
         </div>
         
-        <div class="nav-bottom-buttons__container">
+        <div v-if="checkMsg == false" class="nav-bottom-buttons__container">
           <div class="nav-bottom-buttons__div nav-div-but-0"><button @click="BottomButtonStep(0)" v-show="prevStep != ''" class="buttons-0 upload-list__btn">{{prevStep}}</button></div>
           <div class="nav-bottom-buttons__div nav-div-but-1"><button @click="BottomButtonStep(1)" v-show="nextStep != ''" class="buttons-0 next-step__btn">{{nextStep}}</button></div>
         </div>
 
-        <div v-if="step == 1 || step == 2" class="link-sorted-table__container">
+        <div v-if="step == 1 && checkMsg == true || step == 2" class="link-sorted-table__container">
           <div v-if="SortedTable.length != 0 && finding == null">
-            <h1 class="link-step-0__h1">Проверьте сообщения:</h1>
+            <h1 class="link-step-0__h1 check-message__h1">Проверьте сообщения:</h1>
             <div class="link-sorted-table__cell">
               <h1 class="programm-table__block">ФИО</h1>
               <h1 class="programm-table-phone__block">Телефон</h1>
               <h1 class="programm-table__block">Сообщение</h1>
             </div>
             <div class="programm__table" v-for="item, index in SortedTable" :key="index">
-              <div class="programm-table__block" v-if="max-width < 480">{{item.FIO}}</div>
+              <h1 class="programm-table__block programm-table-block__h1">ФИО:</h1>
+              <div class="programm-table__block">{{item.FIO}}</div>
+              <h1 class="programm-table-phone__block programm-table-phone-block__h1">Телефон:</h1>
               <div class="programm-table-phone__block" :id="`${index}-phone`">{{item.phone}}</div>
               <div class="programm-table__block"><textarea class="programm-table__textarea" disabled v-model="item.message"></textarea> </div>
             </div>  
@@ -174,6 +177,8 @@ export default {
   name: 'Home',
   data() {
     return {
+      btnMsgOne: 'Показать сообщения',
+      checkMsg: false,
       step: 0,
       stepEndPoint: 0,
       qrSrc: '',
@@ -344,6 +349,14 @@ export default {
 
   },
   methods: {
+    ChangeTxt() {
+      if (this.btnMsgOne == 'Показать сообщения') {
+        this.btnMsgOne = 'Скрыть сообщения'
+      }
+        else {
+          this.btnMsgOne = 'Показать сообщения'
+      }
+    },
     BottomButtonStep (btnInd) {
       let nextS = this.step
       if(btnInd == 0) {
@@ -1164,7 +1177,7 @@ export default {
   font-size: 4vw;
 }
 .link-step-1__textarea {
-  font-size: 3.6vw;
+  font-size: 4vw;
   height: 40vw;
 }
 .link-step-1__h1 {
@@ -1177,7 +1190,9 @@ export default {
   display: none;
 }
 .confirm__btn {
-  font-size: 3.5vw;
+  font-size: 4.5vw;
+  margin-bottom: 5vw;
+  background-color: black;
 }
 .next-step__btn {
   font-size: 4vw;
@@ -1305,19 +1320,53 @@ export default {
     flex-direction: column;
     margin-top: 5vw;
 }
+.card-2 {
+  display: flex;
+    width: 100%;
+    margin-top: 7vw;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+}
+.chek-list__btn {
+  font-size: 4.5vw;
+    background-color: black;
+}
 .programm-table__block {
   width: 100%;
+  font-size: 4.5vw;
+  margin-top: 1vw;
 }
 .programm-table__textarea {
   width: 100%;
   height: 50vw; 
   margin-top: 2vw;
+  font-size: 4vw;
 }
 .link-sorted-table__cell {
   display: none;
 }
 .programm-table-phone__block{
-  display: none;
+  display: unset;
+  margin-top: 0;
+    font-size: 5vw;
+    margin-bottom: 3vw;
+    margin-top: 1vw;
+}
+.programm__table {
+  margin-bottom: 5vw;
+  margin-top: 5vw;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    border-top: 0.2vw solid grey;
+} 
+.check-message__h1 {
+  font-size: 5vw;
+} 
+.programm-table-phone-block__h1 {
+  margin-bottom: 0;
+  margin-top: 3vw
 }
 }
 </style>
